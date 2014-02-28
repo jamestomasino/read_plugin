@@ -2197,7 +2197,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   cursor: pointer;
   color: #000;
 }
-/* line 16, ../scss/_read.scss */
+/* line 15, ../scss/_read.scss */
 .read .read_position {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -2231,26 +2231,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-family: 'Droid Serif', serif;
   font-size: 30px;
 }
-/* line 44, ../scss/_read.scss */
-.read .read_position .display.index1 {
-  margin-left: -12px;
-}
-/* line 48, ../scss/_read.scss */
-.read .read_position .display.index2 {
-  margin-left: -24px;
-}
-/* line 52, ../scss/_read.scss */
-.read .read_position .display.index3 {
-  margin-left: -38px;
-}
-/* line 56, ../scss/_read.scss */
-.read .read_position .display.index4 {
-  margin-left: -52px;
-}
-/* line 60, ../scss/_read.scss */
-.read .read_position .display.index5 {
-  margin-left: -66px;
-}
 /* line 66, ../scss/_read.scss */
 .read .speed {
   display: block;
@@ -2259,7 +2239,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   top: 0;
-  right: 10px;
+  left: 10px;
   text-align: center;
   margin: 10px;
   width: 100px;
