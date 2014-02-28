@@ -2,6 +2,8 @@
 
 Speed reading via rapid serial visual presentation
 
+Get the [plugin](https://chrome.google.com/webstore/detail/read/aiijjeoekhpdpfcnejiganpaaacdodko)!
+
 - - - - -
 
 #### How to Use
