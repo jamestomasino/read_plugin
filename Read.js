@@ -341,8 +341,6 @@
 			var before = word.substr(0, this.currentWord.index);
 			var letter = word.substr(this.currentWord.index, 1);
 
-			console.log ( before, letter );
-
 			// fake elements
 			var $before = this.element.find('.before').html(before).css("opacity","0");
 			var $letter = this.element.find('.letter').html(letter).css("opacity","0");
