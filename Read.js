@@ -2,7 +2,6 @@
 	"use strict";
 
 	var textRegex = /\w/g;
-
 	var Word = function ( val ) {
 		this.val = val;
 
@@ -197,7 +196,19 @@
 ( function ( window, $ ){
 	"use strict";
 
-	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
+	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div><div class="before"></div><div class="letter"></div></div><input class="speed" type="text" /></div>';
+
+	$.fn.textWidth = function(){
+		var self = $(this),
+			children = self.contents(),
+			calculator = $('<span style="display: inline-block;" />'),
+			width;
+
+		children.wrap(calculator);
+		width = children.parent().width();
+		children.unwrap();
+		return width;
+	};
 
 	function Read ( block, element, speed ) {
 
@@ -325,8 +336,21 @@
 
 	p.showWord = function () {
 		if (this.displayElement) {
+			var word = this.currentWord.val;
+
+			var before = word.substr(0, this.currentWord.index);
+			var letter = word.substr(this.currentWord.index, 1);
+
+			console.log ( before, letter );
+
+			// fake elements
+			var $before = this.element.find('.before').html(before).css("opacity","0");
+			var $letter = this.element.find('.letter').html(letter).css("opacity","0");
+
+			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
+
 			this.displayElement.html(this.currentWord.val);
-			this.displayElement.removeClass('index0 index1 index2 index3 index4 index5').addClass('index' + this.currentWord.index);
+			this.displayElement.css("margin-left", -calc);
 		}
 
 		if (this.speedElement && !this.speedElement.is(":focus")) {
@@ -339,7 +363,7 @@
 	};
 
 	p.clearDisplay = function () {
-		if (this.displayElement) this.displayElement.removeClass('index0 index1 index2 index3 index4 index5').html("");
+		if (this.displayElement) this.displayElement.html("");
 	};
 
 	p.pause = function () {
