@@ -1,11 +1,7 @@
-chrome.extension.onMessage.addListener(function (message, sender, callback) {
-    if (message.functiontoInvoke == "readSelectedText") {
-        _onReadSelectedText(message.selectedText);
-    }
-});
-
-function _onReadSelectedText ( text ) {
-	var r = new Read ( text );
-	r.play();
-}
-
+(function(){
+	chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
+		if (request.functiontoInvoke == "readSelectedText") {
+			new Read ( request.selectedText ).play();
+		}
+	});
+})();

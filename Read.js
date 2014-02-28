@@ -199,7 +199,7 @@
 
 	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
 
-	var Read = function ( block, element ) {
+	function Read ( block, element ) {
 
 		// Defaults
 		this.parentElement = null;
@@ -213,13 +213,31 @@
 		this.isPlaying = false;
 		this.isEnded = false;
 
+		Read.enforceSingleton(this);
+
 		// Configured
 		this.setWPM(300);
 		this.setBlock(block);
 		this.setElement(element);
 	};
 
+	Read.enforceSingleton = function (inst) {
+		if (Read.instance) {
+			Read.instance.destroy();
+			Read.instance = null;
+		}
+		Read.instance = inst;
+	};
+
 	var p = Read.prototype;
+
+	p.destroy = function () {
+		p.pause();
+		this.speedElement.off ( "blur" );
+		this.speedElement.off ( "keydown" );
+		this.parentElement.find('.read').remove();
+		this.parentElement.css( "padding-top", "-=50" );
+	};
 
 	p.setBlock = function (val) {
 		if (val) {

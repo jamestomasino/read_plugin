@@ -1,3 +1,5 @@
+var readInstance = null;
+
 function genericOnClick(info, tab) {
     chrome.tabs.query({
         "active": true,
@@ -5,7 +7,8 @@ function genericOnClick(info, tab) {
     }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {
             "functiontoInvoke": "readSelectedText",
-			"selectedText": info.selectionText
+			"selectedText": info.selectionText,
+			"readInstance": readInstance
         });
     });
 }
@@ -20,5 +23,4 @@ for (var i = 0; i < contexts.length; i++) {
         "contexts": [context],
         "onclick": genericOnClick
     });
-    console.log("'" + context + "' item:" + id);
 }

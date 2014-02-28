@@ -38,7 +38,8 @@
     "offline_enabled": true,
     "permissions": [
         "contextMenus",
-        "activeTab"
+        "activeTab",
+		"storage"
     ],
     "short_name": "Read",
     "update_url": "https://clients2.google.com/service/update2/crx",
