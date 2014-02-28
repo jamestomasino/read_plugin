@@ -1,0 +1,45 @@
+{
+    "author": "James Tomasino",
+    "background": {
+        "scripts": [
+            "menu.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": "book128.png",
+        "default_popup": "popup.html",
+        "default_title": "Read"
+    },
+    "content_scripts": [
+        {
+			"css": ["main.css"],
+            "js": [
+                "jquery.js",
+                "Read.js"
+            ],
+            "matches": [
+                "http://*/*"
+            ]
+        }
+    ],
+    "content_security_policy": "activeTab",
+    "default_locale": "en",
+    "description": "Read - Speed Reading via RSVP",
+    "homepage_url": "http://github.com/jamestomasino/read_plugin",
+    "icons": {
+        "128": "icon128.png",
+        "16": "icon16.png",
+        "48": "icon48.png"
+    },
+    "key": "",
+    "manifest_version": 2,
+    "name": "Read",
+    "offline_enabled": true,
+    "permissions": [
+        "contextMenus",
+        "activeTab"
+    ],
+    "short_name": "Read",
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "version": "v0.1.0"
+}
