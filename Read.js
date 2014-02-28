@@ -199,7 +199,7 @@
 
 	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div></div><input class="speed" type="text" /></div>';
 
-	function Read ( block, element ) {
+	function Read ( block, element, speed ) {
 
 		// Defaults
 		this.parentElement = null;
@@ -216,7 +216,7 @@
 		Read.enforceSingleton(this);
 
 		// Configured
-		this.setWPM(300);
+		this.setWPM(speed || 300);
 		this.setBlock(block);
 		this.setElement(element);
 	};
