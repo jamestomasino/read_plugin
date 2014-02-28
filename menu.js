@@ -1,13 +1,24 @@
-function _onReadSelectedText (obj) {
-	//localStorage.setItem("selectedText", obj.selectionText);
-	var __read = new Read ( obj.selectionText );
-	__read.play();
+function genericOnClick(info, tab) {
+    chrome.tabs.query({
+        "active": true,
+        "currentWindow": true
+    }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            "functiontoInvoke": "readSelectedText",
+			"selectedText": info.selectionText
+        });
+    });
 }
 
-// Create selection menu
+// Create one test item for each context type.
 var contexts = ["selection"];
 for (var i = 0; i < contexts.length; i++) {
-	var context = contexts[i];
-	var title = "Read Selected Text";
-	var id = chrome.contextMenus.create({"title": title, "contexts":[context], "onclick": _onReadSelectedText});
+    var context = contexts[i];
+    var title = "Read Selected Text";
+    var id = chrome.contextMenus.create({
+        "title": title,
+        "contexts": [context],
+        "onclick": genericOnClick
+    });
+    console.log("'" + context + "' item:" + id);
 }
