@@ -2232,7 +2232,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 30px;
 }
 .read .before, .read .letter {
-  text-indent: -999em;
+  position: absolute;
+  top: -999em;
 }
 /* line 66, ../scss/_read.scss */
 .read .speed {
