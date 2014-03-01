@@ -5,7 +5,7 @@ Speed reading via rapid serial visual presentation
 Get the [plugin](https://chrome.google.com/webstore/detail/read/aiijjeoekhpdpfcnejiganpaaacdodko)!
 
 
-[![Read Demonstration](http://img.youtube.com/vi/2EGuFoxAJTg/0.jpg)](http://www.youtube.com/watch?v=2EGuFoxAJTg)
+[![Read Demonstration](http://img.youtube.com/vi/XPbmBl2W1bA/0.jpg)](http://www.youtube.com/watch?v=XPbmBl2W1bA)
 
 - - - - -
 
