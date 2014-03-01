@@ -12,7 +12,7 @@ Select text on any website by dragging over it with your mouse. When you right c
 
 - `Pause` by clicking on the words in the reading bar.
 - `Resume` by clicking on the words in the reading bar again.
-- Change your reading speed by entering a new number on the right.
+- Change your reading speed by entering a new number on the left.
 
 - - - - -
 
