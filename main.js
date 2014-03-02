@@ -13,10 +13,8 @@
 				r.play();
 				break;
 			case "readFullPage":
-				//var r = new Read ( request.selectedText, "body", wpm );
-				var a = grabArticle();
-				console.log (a);
-				//r.play();
+				var r = new Read ( document.body.innerText || document.body.textContent, "body", wpm );
+				r.play();
 				break;
 		}
 	});
