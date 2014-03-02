@@ -7,9 +7,17 @@
 	});
 
 	chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
-		if (request.functiontoInvoke == "readSelectedText") {
-			var r = new Read ( request.selectedText, "body", wpm );
-			r.play();
+		switch (request.functiontoInvoke) {
+			case "readSelectedText":
+				var r = new Read ( request.selectedText, "body", wpm );
+				r.play();
+				break;
+			case "readFullPage":
+				//var r = new Read ( request.selectedText, "body", wpm );
+				var a = grabArticle();
+				console.log (a);
+				//r.play();
+				break;
 		}
 	});
 

@@ -2,7 +2,7 @@
     "author": "James Tomasino",
     "background": {
         "scripts": [
-            "menu.js"
+            "background.js"
         ]
     },
     "browser_action": {
@@ -17,6 +17,7 @@
             ],
             "js": [
                 "jquery.js",
+				"readability.js",
                 "Read.js",
 				"main.js"
             ],
@@ -43,5 +44,5 @@
     ],
     "short_name": "Read",
     "update_url": "https://clients2.google.com/service/update2/crx",
-    "version": "0.1.3"
+    "version": "0.2.0"
 }
