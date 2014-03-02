@@ -196,7 +196,7 @@
 ( function ( window, $ ){
 	"use strict";
 
-	var ele = '<div class="read progrecss"><div class="read_position"><div class="indicator"></div><div class="display"></div><div class="before"></div><div class="letter"></div></div><input class="speed" type="text" /></div>';
+	var ele = '<div class="__read __progrecss"><div class="__read_position"><div class="__read_indicator"></div><div class="__read_display"></div><div class="__read_before"></div><div class="__read_letter"></div></div><input class="__read_speed" type="text" /></div>';
 
 	$.fn.textWidth = function(){
 		var self = $(this),
@@ -246,7 +246,7 @@
 		p.pause();
 		this.speedElement.off ( "blur" );
 		this.speedElement.off ( "keydown" );
-		this.parentElement.find('.read').remove();
+		this.parentElement.find('.__read').remove();
 		this.parentElement.css( "padding-top", "-=50" );
 	};
 
@@ -268,7 +268,7 @@
 
 		// unbind old binds
 		if (this.parentElement) {
-			this.parentElement.find('.read').remove();
+			this.parentElement.find('.__read').remove();
 			this.parentElement.css( "padding-top", "-=50" );
 		}
 
@@ -283,8 +283,8 @@
 		this.parentElement.animate( { "padding-top": "+=50" }, 400);
 		this.parentElement.prepend(this.element);
 		this.element.slideDown();
-		this.displayElement = this.element.find('.display');
-		this.speedElement = this.element.find('.speed');
+		this.displayElement = this.element.find('.__read_display');
+		this.speedElement = this.element.find('.__read_speed');
 		this.displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
 		this.speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
 		this.speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
@@ -342,8 +342,8 @@
 			var letter = word.substr(this.currentWord.index, 1);
 
 			// fake elements
-			var $before = this.element.find('.before').html(before).css("opacity","0");
-			var $letter = this.element.find('.letter').html(letter).css("opacity","0");
+			var $before = this.element.find('.__read_before').html(before).css("opacity","0");
+			var $letter = this.element.find('.__read_letter').html(letter).css("opacity","0");
 
 			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
 
