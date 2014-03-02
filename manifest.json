@@ -17,7 +17,6 @@
             ],
             "js": [
                 "jquery.js",
-				"readability.js",
                 "Read.js",
 				"main.js"
             ],
