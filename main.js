@@ -2,28 +2,40 @@
 
 	var wpm = 300;
 
-	chrome.storage.sync.get("wpm", function(val) {
-		wpm = val.wpm;
-	});
-
 	chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
 		switch (request.functiontoInvoke) {
 			case "readSelectedText":
-				var r = new Read ( request.selectedText, "body", wpm );
-				r.play();
+				getWPM ( request.selectedText );
 				break;
 			case "readFullPage":
-				var r = new Read ( document.body.innerText || document.body.textContent, "body", wpm );
-				r.play();
+				getWPM ( document.body.innerText || document.body.textContent );
 				break;
 		}
 	});
 
-	$(document).on( 'blur', '.read .speed', function () {
-		wpm = Math.min( 15000, Math.max( 0, parseInt(this.value,10)));
-		console.log (wpm);
-		chrome.storage.sync.set({"wpm": wpm}, function() { });
+	$(document).on( 'blur', '.__read .__read_speed', function () {
+		var val = Math.min( 15000, Math.max( 0, parseInt(this.value,10)));
+		setWPM( val );
 	});
+
+	function getWPM ( text ) {
+		chrome.storage.sync.get("wpm", function(val) {
+			wpm = val.wpm;
+			//console.log ('getWPM:', wpm);
+			if (!wpm) wpm = 300;
+			var r = new Read ( text, "body", wpm );
+			r.play();
+		});
+	}
+
+	function setWPM( val ) {
+		wpm = val;
+		chrome.storage.sync.clear(function () {
+			chrome.storage.sync.set({"wpm": wpm}, function() {
+				//console.log ('setWPM:', val, wpm);
+			});
+		});
+	}
 
 })();
 
