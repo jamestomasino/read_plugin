@@ -53,8 +53,9 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 If you are interested in making your own tool using the power of Read, start by grabbing the latest library from [this project](https://github.com/jamestomasino/read).
 
-- - - - -
+#### License
 
+Unless stated otherwise, everything in this repository is dedicated to the public domain through the [Creative Commons Zero license - zero rights reserved](http://creativecommons.org/publicdomain/zero/1.0/).
 
 #### Issues
 
