@@ -17,6 +17,8 @@
             ],
             "js": [
                 "jquery.js",
+                "ReadWord.js",
+                "ReadBlock.js",
                 "Read.js",
 				"main.js"
             ],

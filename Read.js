@@ -1,198 +1,3 @@
-( function ( window ){
-	"use strict";
-
-	var textRegex = /\w/g;
-	var Word = function ( val ) {
-		this.val = val;
-
-		this.index = 0;
-		this.timeMultiplier = 1;
-		this.hasLeadingQuote = false;
-		this.hasTrailingQuote = false;
-		this.hasPeriod = false;
-		this.hasOtherPunc = false;
-
-		this.process();
-	};
-
-	var p = Word.prototype;
-
-	p.process = function () {
-
-		var match = this.val.match(textRegex);
-		this.length = (match) ? match.length : 0;
-
-		var lastChar = this.val.substr(-1);
-		var firstChar = this.val[0];
-
-		if (lastChar == "\"" || lastChar == "'" || lastChar == ")" || lastChar =="”" || lastChar == "’" ) {
-			this.hasTrailingQuote = true;
-		}
-
-		if (firstChar == "\"" || firstChar == "'" || firstChar == "(" || firstChar =="“" || firstChar == "‘" ) {
-			this.hasLeadingQuote = true;
-		}
-
-		if (this.hasTrailingQuote) {
-			lastChar = this.val.substr(-2,1);
-		}
-
-		switch (lastChar) {
-			case ".":
-			case "!":
-			case "?":
-				this.hasPeriod = true;
-				this.timeMultiplier = 2.5;
-				break;
-			case ":":
-			case ";":
-			case ",":
-			case "-":
-				this.hasOtherPunc = true;
-				this.timeMultiplier = 1.5;
-				break;
-		}
-
-		switch (this.length) {
-			case 0:
-			case 1:
-				this.index = 0;
-				this.timeMultiplier += 0.1;
-				break;
-			case 2:
-			case 3:
-			case 4:
-				this.timeMultiplier += 0.2;
-				this.index = 1;
-				break;
-			case 5:
-			case 6:
-			case 7:
-			case 8:
-				this.index = 2;
-				break;
-			case 9:
-			case 10:
-			case 11:
-			case 12:
-			case 13:
-				this.index = 3;
-				this.timeMultiplier += 0.2;
-				break;
-			default:
-				this.index = 4;
-				this.timeMultiplier += 0.4;
-				break;
-		}
-
-		// Adjust index for leading quote
-		if (this.hasLeadingQuote) {
-			this.index ++;
-		}
-
-	};
-
-	window.ReadWord = Word;
-
-}(window) );
-
-
-( function ( window ){
-	"use strict";
-
-	var wordRegex = /([^\s\-\—\/]+[\-\—\/]?|[\r\n]+)/g;
-	var presuf = /^(\W*)(anti|auto|ab|an|ax|al|as|bi|bet|be|contra|cat|cath|cir|cum|cog|col|com|con|cor|could|co|desk|de|dis|did|dif|di|eas|every|ever|extra|ex|end|en|em|epi|evi|func|fund|fin|hyst|hy|han|il|in|im|ir|just|jus|loc|lig|lit|li|mech|manu|man|mal|mis|mid|mono|multi|mem|micro|non|nano|ob|oc|of|opt|op|over|para|per|post|pre|peo|pro|retro|rea|re|rhy|should|some|semi|sen|sol|sub|suc|suf|super|sup|sur|sus|syn|sym|syl|tech|trans|tri|typo|type|uni|un|van|vert|with|would|won)?(.*?)(weens?|widths?|icals?|ables?|ings?|tions?|ions?|ies|isms?|ists?|ful|ness|ments?|ly|ify|ize|ise|ity|en|ers?|ences?|tures?|ples?|als?|phy|puts?|phies|ry|ries|cy|cies|mums?|ous|cents?)?(\W*)$/i;
-	var vowels = 'aeiouyAEIOUY'+
-		'ẚÁáÀàĂăẮắẰằẴẵẲẳÂâẤấẦầẪẫẨẩǍǎÅåǺǻÄäǞǟÃãȦȧǠǡĄąĀāẢảȀȁȂȃẠạẶặẬậḀḁȺⱥ'+
-		'ǼǽǢǣÉƏƎǝéÈèĔĕÊêẾếỀềỄễỂểĚěËëẼẽĖėȨȩḜḝĘęĒēḖḗḔḕẺẻȄȅȆȇẸẹỆệḘḙḚḛɆɇɚɝÍíÌìĬĭÎîǏǐÏ'+
-		'ïḮḯĨĩİiĮįĪīỈỉȈȉȊȋỊịḬḭIıƗɨÓóÒòŎŏÔôỐốỒồỖỗỔổǑǒÖöȪȫŐőÕõṌṍṎṏȬȭȮȯȰȱØøǾǿǪǫǬǭŌōṒṓ'+
-		'ṐṑỎỏȌȍȎȏƠơỚớỜờỠỡỞởỢợỌọỘộƟɵÚúÙùŬŭÛûǓǔŮůÜüǗǘǛǜǙǚǕǖŰűŨũṸṹŲųŪūṺṻỦủȔȕȖȗƯưỨứỪừ'+
-		'ỮữỬửỰựỤụṲṳṶṷṴṵɄʉÝýỲỳŶŷY̊ẙŸÿỸỹẎẏȲȳỶỷỴỵʏɎɏƳƴ';
-	var c = '[^'+vowels+']';
-	var v = '['+vowels+']';
-	var vccv = new RegExp('('+v+c+')('+c+v+')', 'g');
-	var simple = new RegExp('(.{2,4}'+v+')'+'('+c+')', 'g');
-
-	var Block = function ( val ) {
-		this.val = val;
-
-		this.words = [];
-		this.index = 0;
-
-		this.process();
-	};
-
-	var p = Block.prototype;
-
-	p.process = function () {
-		// Cleanup
-		this.words = [];
-		this.index = 0;
-
-		// Build word chain
-		var rawWords = this.val.match(wordRegex);
-		var i = rawWords.length; while (i--) {
-			var w = rawWords[i];
-
-			// Split up long words as best we can
-			if (w.length > 13) {
-				w = this.break(w);
-				var subWords = w.match(wordRegex);
-				var j = subWords.length; while (j--) {
-					this.words.unshift( new ReadWord(subWords[j]) ) ;
-				}
-			} else {
-				this.words.unshift( new ReadWord(w) ) ;
-			}
-		}
-
-	};
-
-
-	p.break = function (word) {
-		// punctuation, prefix, center, suffix, punctuation
-		var parts = presuf.exec(word);
-		var ret = [];
-		if (parts[2]) {
-			ret.push(parts[2]);
-		}
-		if (parts[3]) {
-			ret.push(parts[3].replace(vccv, '$1-$2'));
-		}
-		if (parts[4]) {
-			ret.push(parts[4]);
-		}
-		return (parts[1]||'') + ret.join('-') + (parts[5]||'');
-	};
-
-	p.getWord = function () {
-		if (this.words.length && this.index < this.words.length)
-			return this.words[this.index];
-		else
-			return null;
-	};
-
-	p.next = function () {
-		this.index = Math.min( this.index + 1, this.words.length );
-	};
-
-	p.prev = function () {
-		this.index = Math.max( this.index - 1, 0 );
-	};
-
-	p.restart = function () {
-		this.index = 0;
-	};
-
-	p.getProgress = function () {
-		return this.index / this.words.length;
-	};
-
-	window.ReadBlock = Block;
-
-}(window) );
-
-
 ( function ( window, $ ){
 	"use strict";
 
@@ -210,27 +15,38 @@
 		return width;
 	};
 
-	function Read ( block, element, speed ) {
+	var defaultOptions = {
+		element: null,
+		wpm: 300,
+		slowStartCount: 5,
+		sentenceDelay: 2.5,
+		otherPuncDelay: 1.5,
+		shortWordDelay: 1.3,
+		longWordDelay: 1.4
+	};
+
+
+	function Read ( block, options ) { //element, wpm ) {
 
 		// Defaults
-		this.parentElement = null;
-		this.element = null;
-		this.displayElement = null;
-		this.speedElement = null;
-		this.currentWord = null;
-		this.delay = 0;
-		this.timer = null;
-		this.slowStartCount = 5;
-		this.isPlaying = false;
-		this.isEnded = false;
+		this._parentElement = null;
+		this._displayElement = null;
+		this._speedElement = null;
+		this._currentWord = null;
+		this._delay = 0;
+		this._timer = null;
+		this._isPlaying = false;
+		this._isEnded = false;
+
+		this._options = $.extend( {}, defaultOptions, options );
 
 		Read.enforceSingleton(this);
 
 		// Configured
-		this.setWPM(speed || 300);
-		this.setBlock(block);
-		this.setElement(element);
-	};
+		this.setWPM(this._options.wpm);
+		this.setText(block);
+		this.setElement(this._options.element);
+	}
 
 	Read.enforceSingleton = function (inst) {
 		if (Read.instance) {
@@ -242,21 +58,77 @@
 
 	var p = Read.prototype;
 
-	p.destroy = function () {
-		p.pause();
-		this.speedElement.off ( "blur" );
-		this.speedElement.off ( "keydown" );
-		this.parentElement.find('.__read').remove();
-		this.parentElement.css( "padding-top", "-=50" );
+	p._display = function () {
+		this._currentWord = this._block.getWord();
+		if (this._currentWord) {
+			this._showWord();
+
+			var time = this._delay;
+
+			if ( this._currentWord.hasPeriod ) time *= this._options.sentenceDelay;
+			if ( this._currentWord.hasOtherPunc ) time *= this._options.otherPuncDelay;
+			if ( this._currentWord.isShort ) time *= this._options.shortWordDelay;
+			if ( this._currentWord.isLong ) time *= this._options.longWordDelay;
+
+			if (this._options.slowStartCount) {
+				time = time * this._options.slowStartCount;
+				this._options.slowStartCount --;
+			}
+			this._timer = setTimeout($.proxy(this._next, this),time);
+		} else {
+			this.clearDisplay();
+			this._isPlaying = false;
+			this._isEnded = true;
+			this._options.element.attr('data-progrecss', 100 );
+		}
 	};
 
-	p.setBlock = function (val) {
+	p._showWord = function () {
+		if (this._displayElement) {
+			var word = this._currentWord.val;
+
+			var before = word.substr(0, this._currentWord.index);
+			var letter = word.substr(this._currentWord.index, 1);
+
+			// fake elements
+			var $before = this._options.element.find('.__read_before').html(before).css("opacity","0");
+			var $letter = this._options.element.find('.__read_letter').html(letter).css("opacity","0");
+
+			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
+
+			this._displayElement.html(this._currentWord.val);
+			this._displayElement.css("margin-left", -calc);
+		}
+
+		if (this._speedElement && !this._speedElement.is(":focus")) {
+			this._speedElement.val(this._wpm);
+		}
+
+		if (this._options.element && this._block) {
+			this._options.element.attr('data-progrecss', parseInt(this._block.getProgress() * 100, 10) );
+		}
+	};
+
+	p.destroy = function () {
+		p.pause();
+		this._speedElement.off ( "blur" );
+		this._speedElement.off ( "keydown" );
+		this._parentElement.find('.__read').remove();
+		this._parentElement.css( "padding-top", "-=50" );
+	};
+
+	p.setText = function (val) {
 		if (val) {
 			this.pause();
 			this.restart();
-			this.block = new ReadBlock(val);
+			this._block = new ReadBlock(val);
 			this.clearDisplay();
 		}
+	};
+
+	p._next = function() {
+		this._block._next();
+		this._display();
 	};
 
 	p.setElement = function (val) {
@@ -267,32 +139,32 @@
 		this.clearDisplay();
 
 		// unbind old binds
-		if (this.parentElement) {
-			this.parentElement.find('.__read').remove();
-			this.parentElement.css( "padding-top", "-=50" );
+		if (this._parentElement) {
+			this._parentElement.find('.__read').remove();
+			this._parentElement.css( "padding-top", "-=50" );
 		}
 
 		if (val instanceof $) {
-			this.parentElement = val;
+			this._parentElement = val;
 		} else {
-			this.parentElement = $(val);
+			this._parentElement = $(val);
 		}
 
 		// bind new binds
-		this.element = $(ele);
-		this.parentElement.animate( { "padding-top": "+=50" }, 400);
-		this.parentElement.prepend(this.element);
-		this.element.slideDown();
-		this.displayElement = this.element.find('.__read_display');
-		this.speedElement = this.element.find('.__read_speed');
-		this.displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
-		this.speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
-		this.speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
+		this._options.element = $(ele);
+		this._parentElement.animate( { "padding-top": "+=50" }, 400);
+		this._parentElement.prepend(this._options.element);
+		this._options.element.slideDown();
+		this._displayElement = this._options.element.find('.__read_display');
+		this._speedElement = this._options.element.find('.__read_speed');
+		this._displayElement.on ( "touchend click", $.proxy(this.playPauseToggle, this) );
+		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
+		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
 
 	};
 
 	p.playPauseToggle = function () {
-		if (this.isPlaying) {
+		if (this._isPlaying) {
 			this.pause();
 		} else {
 			this.play();
@@ -300,86 +172,75 @@
 	};
 
 	p.play = function () {
-		if (this.block) {
-			if (this.isEnded) {
+		if (this._block) {
+			if (this._isEnded) {
 				this.restart();
-				this.isEnded = false;
+				this._isEnded = false;
 			}
-			this.slowStartCount = 5;
-			this.display();
-			this.isPlaying = true;
-		}
-	};
-
-	p.next = function() {
-		this.block.next();
-		this.display();
-	};
-
-	p.display = function () {
-		this.currentWord = this.block.getWord();
-		if (this.currentWord) {
-			this.showWord();
-			var time = this.delay * this.currentWord.timeMultiplier;
-			if (this.slowStartCount) {
-				time = time * this.slowStartCount;
-				this.slowStartCount --;
-			}
-			this.timer = setTimeout($.proxy(this.next, this),time);
-		} else {
-			this.clearDisplay();
-			this.isPlaying = false;
-			this.isEnded = true;
-			this.element.attr('data-progrecss', 100 );
-		}
-	};
-
-	p.showWord = function () {
-		if (this.displayElement) {
-			var word = this.currentWord.val;
-
-			var before = word.substr(0, this.currentWord.index);
-			var letter = word.substr(this.currentWord.index, 1);
-
-			// fake elements
-			var $before = this.element.find('.__read_before').html(before).css("opacity","0");
-			var $letter = this.element.find('.__read_letter').html(letter).css("opacity","0");
-
-			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
-
-			this.displayElement.html(this.currentWord.val);
-			this.displayElement.css("margin-left", -calc);
-		}
-
-		if (this.speedElement && !this.speedElement.is(":focus")) {
-			this.speedElement.val(this._wpm);
-		}
-
-		if (this.element && this.block) {
-			this.element.attr('data-progrecss', parseInt(this.block.getProgress() * 100, 10) );
+			this._options.slowStartCount = 5;
+			this._display();
+			this._isPlaying = true;
 		}
 	};
 
 	p.clearDisplay = function () {
-		if (this.displayElement) this.displayElement.html("");
+		if (this._displayElement) this._displayElement.html("");
 	};
 
 	p.pause = function () {
-		clearTimeout(this.timer);
-		this.isPlaying = false;
+		clearTimeout(this._timer);
+		this._isPlaying = false;
 	};
 
 	p.restart = function () {
-		if (this.block) this.block.restart();
+		if (this._block) this._block.restart();
 	};
 
 	p.setWPM = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (1500, val);
 		this._wpm = val;
-		this.delay = 1/(val/60)*1000;
+		this._delay = 1/(val/60)*1000;
+	};
+
+	p.setSentenceDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.sentenceDelay = val;
+	};
+
+	p.setOtherPuncDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.otherPuncDelay = val;
+	};
+
+	p.setShortWordDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.shortWordDelay = val;
+	};
+
+	p.setLongWordDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.longWordDelay = val;
+	};
+
+	p.setSlowStartCount = function ( val ) {
+		val = Number(val);
+		val = Math.max(0,val);
+		val = Math.min(10,val);
+		this._options.slowStartCount = val;
 	};
 
 	p.updateWPMFromUI = function () {
-		var newWPM = this.speedElement.val();
+		var newWPM = this._speedElement.val();
 		newWPM = newWPM.match(/[\d]+/g);
 		newWPM = parseInt(newWPM, 10);
 		this.setWPM(newWPM);
