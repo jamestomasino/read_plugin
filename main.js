@@ -23,7 +23,7 @@
 			wpm = val.wpm;
 			//console.log ('getWPM:', wpm);
 			if (!wpm) wpm = 300;
-			var r = new Read ( text, "body", wpm );
+			var r = new Read ( text, {"wpm":wpm} );
 			r.play();
 		});
 	}
@@ -38,4 +38,3 @@
 	}
 
 })();
-
