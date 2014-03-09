@@ -17,6 +17,7 @@
             ],
             "js": [
                 "jquery.js",
+                "jquery.nouislider.js",
                 "ReadWord.js",
                 "ReadBlock.js",
                 "Read.js",

@@ -1,4 +1,3 @@
-/*@import "compass/reset";*/
 /*
 progre(c)ss - http://jh3y.github.io/progre-c-ss
 Licensed under the MIT license
@@ -2175,6 +2174,231 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: #e74c3c;
 }
 
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+/* line 7, ../scss/_nouislider.scss */
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 16, ../scss/_nouislider.scss */
+.noUi-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 21, ../scss/_nouislider.scss */
+.noUi-origin {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/* line 28, ../scss/_nouislider.scss */
+.noUi-handle {
+  position: relative;
+  z-index: 1;
+}
+
+/* line 32, ../scss/_nouislider.scss */
+.noUi-stacking .noUi-handle {
+  /* This class is applied to the lower origin when
+     its values is > 50%. */
+  z-index: 10;
+}
+
+/* line 37, ../scss/_nouislider.scss */
+.noUi-stacking + .noUi-origin {
+  /* Fix stacking order in IE7, which incorrectly
+     creates a new context for the origins. */
+  *z-index: -1;
+}
+
+/* line 42, ../scss/_nouislider.scss */
+.noUi-state-tap .noUi-origin {
+  -webkit-transition: left 0.3s, top 0.3s;
+  transition: left 0.3s, top 0.3s;
+}
+
+/* line 46, ../scss/_nouislider.scss */
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+/* Slider size and handle placement;
+ */
+/* line 52, ../scss/_nouislider.scss */
+.noUi-horizontal {
+  height: 18px;
+}
+
+/* line 55, ../scss/_nouislider.scss */
+.noUi-horizontal .noUi-handle {
+  width: 34px;
+  height: 28px;
+  left: -17px;
+  top: -6px;
+}
+
+/* line 61, ../scss/_nouislider.scss */
+.noUi-horizontal.noUi-extended {
+  padding: 0 15px;
+}
+
+/* line 64, ../scss/_nouislider.scss */
+.noUi-horizontal.noUi-extended .noUi-origin {
+  right: -15px;
+}
+
+/* line 67, ../scss/_nouislider.scss */
+.noUi-vertical {
+  width: 18px;
+}
+
+/* line 70, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-handle {
+  width: 28px;
+  height: 34px;
+  left: -6px;
+  top: -17px;
+}
+
+/* line 76, ../scss/_nouislider.scss */
+.noUi-vertical.noUi-extended {
+  padding: 15px 0;
+}
+
+/* line 79, ../scss/_nouislider.scss */
+.noUi-vertical.noUi-extended .noUi-origin {
+  bottom: -15px;
+}
+
+/* Styling;
+ */
+/* line 85, ../scss/_nouislider.scss */
+.noUi-background {
+  background: #FAFAFA;
+  box-shadow: inset 0 1px 1px #f0f0f0;
+}
+
+/* line 89, ../scss/_nouislider.scss */
+.noUi-connect {
+  background: #3FB8AF;
+  box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
+  -webkit-transition: background 450ms;
+  transition: background 450ms;
+}
+
+/* line 95, ../scss/_nouislider.scss */
+.noUi-origin {
+  border-radius: 2px;
+}
+
+/* line 98, ../scss/_nouislider.scss */
+.noUi-target {
+  border-radius: 4px;
+  border: 1px solid #D3D3D3;
+  box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
+}
+
+/* line 103, ../scss/_nouislider.scss */
+.noUi-target.noUi-connect {
+  box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45), 0 3px 6px -5px #bbbbbb;
+}
+
+/* Handles and cursors;
+ */
+/* line 109, ../scss/_nouislider.scss */
+.noUi-dragable {
+  cursor: w-resize;
+}
+
+/* line 112, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-dragable {
+  cursor: n-resize;
+}
+
+/* line 115, ../scss/_nouislider.scss */
+.noUi-handle {
+  border: 1px solid #D9D9D9;
+  border-radius: 3px;
+  background: #FFF;
+  cursor: default;
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
+}
+
+/* line 124, ../scss/_nouislider.scss */
+.noUi-active {
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;
+}
+
+/* Handle stripes;
+ */
+/* line 133, ../scss/_nouislider.scss */
+.noUi-handle:before,
+.noUi-handle:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 14px;
+  width: 1px;
+  background: #E8E7E6;
+  left: 14px;
+  top: 6px;
+}
+
+/* line 143, ../scss/_nouislider.scss */
+.noUi-handle:after {
+  left: 17px;
+}
+
+/* line 147, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-handle:before,
+.noUi-vertical .noUi-handle:after {
+  width: 14px;
+  height: 1px;
+  left: 6px;
+  top: 14px;
+}
+
+/* line 153, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-handle:after {
+  top: 17px;
+}
+
+/* Disabled state;
+ */
+/* line 160, ../scss/_nouislider.scss */
+[disabled].noUi-connect,
+[disabled] .noUi-connect {
+  background: #B8B8B8;
+}
+
+/* line 163, ../scss/_nouislider.scss */
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+}
+
+/* Blocked state;
+ */
+/* line 170, ../scss/_nouislider.scss */
+.noUi-state-blocked.noUi-connect,
+.noUi-state-blocked .noUi-connect {
+  background: #4FDACF;
+}
+
 /* line 1, ../scss/_read.scss */
 .__read {
   position: fixed;
@@ -2187,18 +2411,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   height: 50px;
   padding: 0;
   margin: 0;
+  z-index: 999999;
+  cursor: pointer;
+  color: #000;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
   overflow: hidden;
+}
+/* line 17, ../scss/_read.scss */
+.__read * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 21, ../scss/_read.scss */
+.__read.open {
+  height: 300px;
+}
+/* line 23, ../scss/_read.scss */
+.__read .__read_bar {
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(60%, #ffffff), color-stop(100%, #eeeeee));
   background-image: -webkit-linear-gradient(top, #ffffff 60%, #eeeeee);
   background-image: -moz-linear-gradient(top, #ffffff 60%, #eeeeee);
   background-image: -o-linear-gradient(top, #ffffff 60%, #eeeeee);
   background-image: linear-gradient(top, #ffffff 60%, #eeeeee);
-  z-index: 999999;
-  cursor: pointer;
-  color: #000;
+  overflow: hidden;
 }
-/* line 16, ../scss/_read.scss */
-.__read .__read_position {
+/* line 31, ../scss/_read.scss */
+.__read .__read_bar .__read_position {
   position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2206,9 +2450,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   width: 500px;
   height: 50px;
   margin: 0 auto;
+  line-height: 30px;
 }
-/* line 24, ../scss/_read.scss */
-.__read .__read_position .__read_indicator {
+/* line 40, ../scss/_read.scss */
+.__read .__read_bar .__read_position .__read_indicator {
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2220,9 +2465,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   left: 220px;
   background-color: rgba(150, 150, 150, 0.2);
 }
-/* line 36, ../scss/_read.scss */
-.__read .__read_position .__read_display, .__read .__read_position .__read_before,
-.__read .__read_position .__read_letter {
+/* line 51, ../scss/_read.scss */
+.__read .__read_bar .__read_position .__read_display, .__read .__read_bar .__read_position .__read_before,
+.__read .__read_bar .__read_position .__read_letter {
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2232,44 +2477,121 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-family: 'Droid Serif', serif;
   font-size: 30px;
 }
-/* line 45, ../scss/_read.scss */
-.__read .__read_position .__read_before,
-.__read .__read_position .__read_letter {
+/* line 61, ../scss/_read.scss */
+.__read .__read_bar .__read_position .__read_before,
+.__read .__read_bar .__read_position .__read_letter {
   padding: 0;
 }
-/* line 51, ../scss/_read.scss */
-.__read .__read_speed {
+/* line 67, ../scss/_read.scss */
+.__read .__read_bar .__read_config {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  width: 30px;
+  height: 47px;
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
+  line-height: 36px;
+  opacity: 0.1;
+}
+/* line 78, ../scss/_read.scss */
+.__read .__read_bar .__read_config.active, .__read .__read_bar .__read_config:hover {
+  opacity: 0.4;
+}
+/* line 81, ../scss/_read.scss */
+.__read .__read_bar .__read_restart {
+  position: absolute;
+  top: 6px;
+  left: 38px;
+  width: 50px;
+  height: 47px;
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  line-height: 37px;
+  opacity: 0.1;
+}
+/* line 92, ../scss/_read.scss */
+.__read .__read_bar .__read_restart.active, .__read .__read_bar .__read_restart:hover {
+  opacity: 0.4;
+}
+/* line 95, ../scss/_read.scss */
+.__read .__read_bar .__read_close_read {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 47px;
+  padding: 0;
+  margin: 0;
+  line-height: 36px;
+  font-size: 30px;
+  opacity: 0.1;
+}
+/* line 106, ../scss/_read.scss */
+.__read .__read_bar .__read_close_read:hover {
+  opacity: 0.4;
+}
+/* line 110, ../scss/_read.scss */
+.__read .__read_settings {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: 250px;
+  background-color: #c6d6dc;
+  z-index: 10;
+}
+/* line 119, ../scss/_read.scss */
+.__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Droid Serif', serif;
+  font-size: 14px;
+}
+/* line 127, ../scss/_read.scss */
+.__read .__read_settings .__read_setting {
   top: 0;
+  left: 0;
+  width: 200px;
+  height: 80px;
+}
+/* line 132, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_wpm {
+  top: 10px;
+  left: 10px;
+}
+/* line 137, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_slowstart {
+  top: 90px;
+  left: 10px;
+}
+/* line 142, ../scss/_read.scss */
+.__read .__read_settings .__read_setting.__read_sentencedelay {
+  top: 170px;
+  left: 10px;
+}
+/* line 147, ../scss/_read.scss */
+.__read .__read_settings .__read_setting label {
+  left: 10px;
+}
+/* line 151, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input {
+  top: 20px;
   left: 10px;
   text-align: center;
-  margin: 10px;
   width: 100px;
-  font-family: 'Droid Serif', serif;
+  height: 40px;
   font-size: 24px;
+  margin: 0;
 }
-
-/*.wrapper { */
-/*position: relative;*/
-/*@include box-sizing(border-box);*/
-/*width: 500px;*/
-/*margin: 0 auto;*/
-/*.input {*/
-/*position: absolute;*/
-/*@include box-sizing(border-box);*/
-/*top: 20px;*/
-/*left: 0;*/
-/*width: 500px;*/
-/*textarea {*/
-/*@include box-sizing(border-box);*/
-/*font-family: 'Droid Serif', serif;*/
-/*font-size: 12px;*/
-/*width: 500px;*/
-/*height: 300px;*/
-/*}*/
-/*}*/
-/*}*/
+/* line 161, ../scss/_read.scss */
+.__read .__read_settings .__read_setting .__read_slider {
+  top: 32px;
+  left: 125px;
+  width: 350px;
+  height: 18px;
+}
