@@ -46,7 +46,7 @@
     ],
     "short_name": "Read",
     "update_url": "https://clients2.google.com/service/update2/crx",
-    "version": "0.3.3",
+    "version": "0.3.4",
 	"web_accessible_resources": [
 		"DejaVuSans-webfont.eot",
 		"DejaVuSans-webfont.svg",
