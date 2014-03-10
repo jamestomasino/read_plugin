@@ -1,5 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
-@import url(http://fonts.googleapis.com/css?family=Cardo);
+@font-face {
+    font-family: 'droid';
+    src: url('chrome-extension://__MSG_@@extension_id__/DroidSans-webfont.eot');
+    src: url('chrome-extension://__MSG_@@extension_id__/DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('chrome-extension://__MSG_@@extension_id__/DroidSans-webfont.woff') format('woff'),
+         url('chrome-extension://__MSG_@@extension_id__/DroidSans-webfont.ttf') format('truetype'),
+         url('chrome-extension://__MSG_@@extension_id__/DroidSans-webfont.svg#droid_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /*
 progre(c)ss - http://jh3y.github.io/progre-c-ss
 Licensed under the MIT license
@@ -2477,12 +2487,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-sizing: border-box;
   padding: 10px 10px 10px 221px;
   width: 300px;
-  font-family: 'Droid Serif', serif;
+  font-family: 'droid', serif;
   font-size: 30px;
 }
 /* line 65, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
+  top: -999em;
   padding: 0;
 }
 /* line 71, ../scss/_read.scss */
@@ -2495,7 +2506,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0;
   padding: 0;
   font-size: 36px;
-  font-family: 'Cardo', serif;
+  font-family: 'droid', serif;
   line-height: 36px;
   opacity: 0.1;
 }
@@ -2513,7 +2524,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 0;
   margin: 0;
   font-size: 35px;
-  font-family: 'Cardo', serif;
+  font-family: 'droid', serif;
   line-height: 37px;
   opacity: 0.1;
 }
@@ -2532,7 +2543,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0;
   line-height: 36px;
   font-size: 30px;
-  font-family: 'Cardo', serif;
+  font-family: 'droid', serif;
   opacity: 0.1;
 }
 /* line 113, ../scss/_read.scss */
@@ -2555,7 +2566,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Droid Serif', serif;
+  font-family: 'droid', serif;
   font-size: 14px;
 }
 /* line 134, ../scss/_read.scss */
@@ -2619,7 +2630,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /*width: 500px;*/
 /*textarea {*/
 /*@include box-sizing(border-box);*/
-/*font-family: 'Droid Serif', serif;*/
+/*font-family: 'droid', serif;*/
 /*font-size: 12px;*/
 /*width: 500px;*/
 /*height: 300px;*/
