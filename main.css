@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(http://fonts.googleapis.com/css?family=Cardo);
 /*
 progre(c)ss - http://jh3y.github.io/progre-c-ss
 Licensed under the MIT license
@@ -2310,7 +2312,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .noUi-target {
   border-radius: 4px;
   border: 1px solid #D3D3D3;
-  box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
+  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbbbbb;
 }
 
 /* line 103, ../scss/_nouislider.scss */
@@ -2336,12 +2338,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   border-radius: 3px;
   background: #FFF;
   cursor: default;
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
+  box-shadow: inset 0 0 1px white, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbbbbb;
 }
 
 /* line 124, ../scss/_nouislider.scss */
 .noUi-active {
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;
+  box-shadow: inset 0 0 1px white, inset 0 1px 7px #dddddd, 0 3px 6px -3px #bbbbbb;
 }
 
 /* Handle stripes;
@@ -2399,7 +2401,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background: #4FDACF;
 }
 
-/* line 1, ../scss/_read.scss */
+/* line 4, ../scss/_read.scss */
 .__read {
   position: fixed;
   display: none;
@@ -2419,17 +2421,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   transition: all ease-in-out 0.4s;
   overflow: hidden;
 }
-/* line 17, ../scss/_read.scss */
+/* line 21, ../scss/_read.scss */
 .__read * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 21, ../scss/_read.scss */
+/* line 25, ../scss/_read.scss */
 .__read.open {
   height: 300px;
 }
-/* line 23, ../scss/_read.scss */
+/* line 27, ../scss/_read.scss */
 .__read .__read_bar {
   width: 100%;
   height: 50px;
@@ -2442,7 +2444,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-image: linear-gradient(top, #ffffff 60%, #eeeeee);
   overflow: hidden;
 }
-/* line 31, ../scss/_read.scss */
+/* line 35, ../scss/_read.scss */
 .__read .__read_bar .__read_position {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -2453,7 +2455,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0 auto;
   line-height: 30px;
 }
-/* line 40, ../scss/_read.scss */
+/* line 44, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_indicator {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -2466,7 +2468,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   left: 220px;
   background-color: rgba(150, 150, 150, 0.2);
 }
-/* line 51, ../scss/_read.scss */
+/* line 55, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_display, .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
   position: absolute;
@@ -2478,12 +2480,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-family: 'Droid Serif', serif;
   font-size: 30px;
 }
-/* line 61, ../scss/_read.scss */
+/* line 65, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
   padding: 0;
 }
-/* line 67, ../scss/_read.scss */
+/* line 71, ../scss/_read.scss */
 .__read .__read_bar .__read_config {
   position: absolute;
   top: 5px;
@@ -2493,31 +2495,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0;
   padding: 0;
   font-size: 36px;
+  font-family: 'Cardo', serif;
   line-height: 36px;
   opacity: 0.1;
 }
-/* line 78, ../scss/_read.scss */
+/* line 83, ../scss/_read.scss */
 .__read .__read_bar .__read_config.active, .__read .__read_bar .__read_config:hover {
   opacity: 0.4;
 }
-/* line 81, ../scss/_read.scss */
+/* line 86, ../scss/_read.scss */
 .__read .__read_bar .__read_restart {
   position: absolute;
-  top: 6px;
+  top: 4px;
   left: 38px;
   width: 50px;
   height: 47px;
   padding: 0;
   margin: 0;
-  font-size: 30px;
+  font-size: 35px;
+  font-family: 'Cardo', serif;
   line-height: 37px;
   opacity: 0.1;
 }
-/* line 92, ../scss/_read.scss */
+/* line 98, ../scss/_read.scss */
 .__read .__read_bar .__read_restart.active, .__read .__read_bar .__read_restart:hover {
   opacity: 0.4;
 }
-/* line 95, ../scss/_read.scss */
+/* line 101, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read {
   position: absolute;
   top: 5px;
@@ -2528,13 +2532,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0;
   line-height: 36px;
   font-size: 30px;
+  font-family: 'Cardo', serif;
   opacity: 0.1;
 }
-/* line 106, ../scss/_read.scss */
+/* line 113, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read:hover {
   opacity: 0.4;
 }
-/* line 110, ../scss/_read.scss */
+/* line 117, ../scss/_read.scss */
 .__read .__read_settings {
   position: absolute;
   top: 50px;
@@ -2543,7 +2548,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: #c6d6dc;
   z-index: 10;
 }
-/* line 119, ../scss/_read.scss */
+/* line 126, ../scss/_read.scss */
 .__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
@@ -2553,33 +2558,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-family: 'Droid Serif', serif;
   font-size: 14px;
 }
-/* line 127, ../scss/_read.scss */
+/* line 134, ../scss/_read.scss */
 .__read .__read_settings .__read_setting {
   top: 0;
   left: 0;
   width: 200px;
   height: 80px;
 }
-/* line 132, ../scss/_read.scss */
+/* line 139, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_wpm {
   top: 10px;
   left: 10px;
 }
-/* line 137, ../scss/_read.scss */
+/* line 144, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_slowstart {
   top: 90px;
   left: 10px;
 }
-/* line 142, ../scss/_read.scss */
+/* line 149, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_sentencedelay {
   top: 170px;
   left: 10px;
 }
-/* line 147, ../scss/_read.scss */
+/* line 154, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
   left: 10px;
 }
-/* line 151, ../scss/_read.scss */
+/* line 158, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
   top: 20px;
   left: 10px;
@@ -2589,10 +2594,35 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 24px;
   margin: 0;
 }
-/* line 161, ../scss/_read.scss */
+/* line 168, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   top: 32px;
   left: 125px;
   width: 350px;
   height: 18px;
 }
+
+/*body { */
+/*padding: 0;*/
+/*margin: 0;*/
+/*}*/
+/*.wrapper {*/
+/*position: relative;*/
+/*@include box-sizing(border-box);*/
+/*width: 500px;*/
+/*margin: 0 auto;*/
+/*.input {*/
+/*position: absolute;*/
+/*@include box-sizing(border-box);*/
+/*top: 20px;*/
+/*left: 0;*/
+/*width: 500px;*/
+/*textarea {*/
+/*@include box-sizing(border-box);*/
+/*font-family: 'Droid Serif', serif;*/
+/*font-size: 12px;*/
+/*width: 500px;*/
+/*height: 300px;*/
+/*}*/
+/*}*/
+/*}*/
