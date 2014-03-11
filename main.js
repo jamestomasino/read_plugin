@@ -36,7 +36,7 @@
 		readOptions = $.extend( {}, readOptions, myOptions );
 		chrome.storage.sync.clear(function () {
 			chrome.storage.sync.set(readOptions, function() {
-				console.log('[READ] set:', readOptions);
+				//console.log('[READ] set:', readOptions);
 			});
 		});
 	}
@@ -44,7 +44,7 @@
 	function getReadOptions ( text ) {
 		chrome.storage.sync.get(null, function ( myOptions ) {
 			readOptions = $.extend( {}, readOptions, myOptions );
-			console.log('[READ] get:', readOptions);
+			//console.log('[READ] get:', readOptions);
 			var r = new Read ( text, readOptions );
 			r.play();
 		});
