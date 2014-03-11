@@ -183,6 +183,7 @@
 			},
 			set: $.proxy( function() {
 				this.setSlowStartCount( this._slowStartElement.val() );
+				this._slowStartElement.blur();
 			},this )
 		});
 
@@ -199,6 +200,7 @@
 			},
 			set: $.proxy( function() {
 				this.setSentenceDelay( this._sentenceDelayElement.val() );
+				this._sentenceDelayElement.blur();
 			},this )
 		});
 
