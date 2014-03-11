@@ -13,7 +13,7 @@
 		}
 	});
 
-	$(document).on( 'blur change', '.__read .__read_speed', function () {
+	$(document).on( 'blur', '.__read .__read_speed', function () {
 		var val = Math.min( 15000, Math.max( 0, parseInt(this.value,10)));
 		setWPM( val );
 	});

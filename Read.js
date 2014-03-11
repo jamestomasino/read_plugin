@@ -166,7 +166,8 @@
 			},
 			set: $.proxy( function() {
 				this.setWPM( this._speedElement.val() );
-			},this )
+				this._speedElement.blur();
+			}, this )
 		});
 
 		// Slow Start
