@@ -2505,6 +2505,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
   padding: 0;
+  top: -99em;
 }
 /* line 81, ../scss/_read.scss */
 .__read .__read_bar .__read_config {
