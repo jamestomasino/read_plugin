@@ -30,6 +30,21 @@
 					<input class="__read_sentence_delay" type="text"/>\
 					<div class="__read_slider __read_sentence_delay_slider"></div>\
 				</div>\
+				<div class="__read_setting __read_puncdelay">\
+					<label>Other Punctuation Delay</label>\
+					<input class="__read_punc_delay" type="text"/>\
+					<div class="__read_slider __read_punc_delay_slider"></div>\
+				</div>\
+				<div class="__read_setting __read_shortworddelay">\
+					<label>Short Word Delay</label>\
+					<input class="__read_short_word_delay" type="text"/>\
+					<div class="__read_slider __read_short_word_delay_slider"></div>\
+				</div>\
+				<div class="__read_setting __read_longworddelay">\
+					<label>Long Word Delay</label>\
+					<input class="__read_long_word_delay" type="text"/>\
+					<div class="__read_slider __read_long_word_delay_slider"></div>\
+				</div>\
 			</div>\
 		</div>';
 
@@ -76,6 +91,15 @@
 
 		this._sentenceDelayElement = null;
 		this._sentenceDelaySliderElement = null;
+
+		this._puncDelayElement = null;
+		this._puncDelaySliderElement = null;
+
+		this._shortWordDelayElement = null;
+		this._shortWordDelaySliderElement = null;
+
+		this._longWordDelayElement = null;
+		this._longWordDelaySliderElement = null;
 
 		this._currentWord = null;
 		this._delay = 0;
@@ -204,6 +228,58 @@
 			},this )
 		});
 
+		// Other Punctuation Delay
+		this._puncDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: this._options.otherPuncDelay,
+			step: 0.1,
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._puncDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setOtherPuncDelay( this._puncDelayElement.val() );
+				this._puncDelayElement.blur();
+			},this )
+		});
+
+		// Short Word Delay
+		this._shortWordDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: this._options.shortWordDelay,
+			step: 0.1,
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._shortWordDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setshortWordDelay( this._shortWordDelayElement.val() );
+				this._shortWordDelayElement.blur();
+			},this )
+		});
+
+		// Long word Delay
+		this._longWordDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: this._options.longWordDelay,
+			step: 0.1,
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._longWordDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setlongWordDelay( this._longWordDelayElement.val() );
+				this._longWordDelayElement.blur();
+			},this )
+		});
+
+
 	};
 
 	p.toggleSettings = function () {
@@ -230,6 +306,11 @@
 		this._speedElement.off ( "keydown" );
 		this._parentElement.find('.__read').remove();
 		this._parentElement.css( "padding-top", "-=50" );
+		this._configElement.off();
+		this._restartElement.off();
+		this._displayElement.off();
+		this._closeElement.off();
+		this._speedElement.off();
 	};
 
 	p.setText = function (val) {
@@ -265,6 +346,7 @@
 			this._parentElement = $(val);
 		}
 
+
 		// bind new binds
 		this._options.element = $(ele);
 		this._parentElement.animate( { "padding-top": "+=50" }, 400);
@@ -292,6 +374,15 @@
 
 		this._sentenceDelayElement = this._options.element.find('.__read_sentence_delay');
 		this._sentenceDelaySliderElement = this._options.element.find('.__read_sentence_delay_slider');
+
+		this._puncDelayElement = this._options.element.find('.__read_punc_delay');
+		this._puncDelaySliderElement = this._options.element.find('.__read_punc_delay_slider');
+
+		this._shortWordDelayElement = this._options.element.find('.__read_short_word_delay');
+		this._shortWordDelaySliderElement = this._options.element.find('.__read_short_word_delay_slider');
+
+		this._longWordDelayElement = this._options.element.find('.__read_long_word_delay');
+		this._longWordDelaySliderElement = this._options.element.find('.__read_long_word_delay_slider');
 
 		this._speedElement = this._options.element.find('.__read_speed');
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );

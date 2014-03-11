@@ -70,8 +70,8 @@
 
 /* line 55, ../scss/_nouislider.scss */
 .noUi-horizontal .noUi-handle {
-  width: 34px;
-  height: 28px;
+  width: 25px;
+  height: 20px;
   left: -17px;
   top: -6px;
 }
@@ -133,7 +133,7 @@
 /* line 98, ../scss/_nouislider.scss */
 .noUi-target {
   border-radius: 4px;
-  border: 1px solid #D3D3D3;
+  border: 1px solid lightgrey;
   box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbbbbb;
 }
 
@@ -156,7 +156,7 @@
 
 /* line 115, ../scss/_nouislider.scss */
 .noUi-handle {
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   border-radius: 3px;
   background: #FFF;
   cursor: default;
@@ -179,13 +179,13 @@
   height: 14px;
   width: 1px;
   background: #E8E7E6;
-  left: 14px;
-  top: 6px;
+  left: 10px;
+  top: 2px;
 }
 
 /* line 143, ../scss/_nouislider.scss */
 .noUi-handle:after {
-  left: 17px;
+  left: 12px;
 }
 
 /* line 147, ../scss/_nouislider.scss */
@@ -2432,27 +2432,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   top: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  max-height: 50px;
   padding: 0;
   margin: 0;
   text-align: left;
   z-index: 999999;
   color: #000;
-  -webkit-transition: all ease-in-out 0.4s;
-  transition: all ease-in-out 0.4s;
+  -webkit-transition-property: max-height;
+  -moz-transition-property: max-height;
+  -o-transition-property: max-height;
+  transition-property: max-height;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
   overflow: hidden;
 }
-/* line 31, ../scss/_read.scss */
+/* line 32, ../scss/_read.scss */
 .__read * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 35, ../scss/_read.scss */
+/* line 36, ../scss/_read.scss */
 .__read.open {
-  height: 300px;
+  max-height: 500px;
 }
-/* line 37, ../scss/_read.scss */
+/* line 38, ../scss/_read.scss */
 .__read .__read_bar {
   width: 100%;
   height: 50px;
@@ -2465,7 +2471,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-image: linear-gradient(top, #ffffff 60%, #eeeeee);
   overflow: hidden;
 }
-/* line 45, ../scss/_read.scss */
+/* line 46, ../scss/_read.scss */
 .__read .__read_bar .__read_position {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -2476,7 +2482,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0 auto;
   line-height: 30px;
 }
-/* line 54, ../scss/_read.scss */
+/* line 55, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_indicator {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -2489,7 +2495,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   left: 220px;
   background-color: rgba(150, 150, 150, 0.2);
 }
-/* line 65, ../scss/_read.scss */
+/* line 66, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_display, .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
   position: absolute;
@@ -2498,17 +2504,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-sizing: border-box;
   padding: 10px 10px 10px 221px;
   width: 300px;
-  font-family: 'droid', serif;
+  font-family: "droid", serif;
   font-size: 30px;
   cursor: pointer;
 }
-/* line 76, ../scss/_read.scss */
+/* line 77, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
   padding: 0;
   top: -99em;
 }
-/* line 83, ../scss/_read.scss */
+/* line 84, ../scss/_read.scss */
 .__read .__read_bar .__read_config {
   position: absolute;
   top: 0;
@@ -2522,11 +2528,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   opacity: 0.1;
   cursor: pointer;
 }
-/* line 95, ../scss/_read.scss */
+/* line 96, ../scss/_read.scss */
 .__read .__read_bar .__read_config.active, .__read .__read_bar .__read_config:hover {
   opacity: 0.4;
 }
-/* line 98, ../scss/_read.scss */
+/* line 99, ../scss/_read.scss */
 .__read .__read_bar .__read_restart {
   position: absolute;
   top: 0;
@@ -2540,11 +2546,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   opacity: 0.1;
   cursor: pointer;
 }
-/* line 110, ../scss/_read.scss */
+/* line 111, ../scss/_read.scss */
 .__read .__read_bar .__read_restart.active, .__read .__read_bar .__read_restart:hover {
   opacity: 0.4;
 }
-/* line 113, ../scss/_read.scss */
+/* line 114, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read {
   position: absolute;
   top: 0;
@@ -2558,69 +2564,79 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   opacity: 0.1;
   cursor: pointer;
 }
-/* line 125, ../scss/_read.scss */
+/* line 126, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read:hover {
   opacity: 0.4;
 }
-/* line 129, ../scss/_read.scss */
+/* line 130, ../scss/_read.scss */
 .__read .__read_settings {
-  position: absolute;
-  top: 50px;
+  position: relative;
+  top: 0;
   width: 100%;
-  height: 250px;
-  background-color: #c6d6dc;
+  height: auto;
+  text-align: center;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e7e7e7), color-stop(100%, #e3e3e3));
+  background-image: -webkit-linear-gradient(top, #e7e7e7, #e3e3e3);
+  background-image: -moz-linear-gradient(top, #e7e7e7, #e3e3e3);
+  background-image: -o-linear-gradient(top, #e7e7e7, #e3e3e3);
+  background-image: linear-gradient(top, #e7e7e7, #e3e3e3);
+  border-bottom: 2px solid #cccccc;
   z-index: 10;
 }
-/* line 138, ../scss/_read.scss */
-.__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
-  display: block;
-  position: absolute;
+/* line 140, ../scss/_read.scss */
+.__read .__read_settings .__read_setting {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  width: 200px;
+  margin: 0 40px 10px 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'droid', serif;
-  font-size: 14px;
+  font-family: "droid", serif;
 }
-/* line 146, ../scss/_read.scss */
-.__read .__read_settings .__read_setting {
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 80px;
-}
-/* line 151, ../scss/_read.scss */
-.__read .__read_settings .__read_setting.__read_wpm {
+/* line 148, ../scss/_read.scss */
+.__read .__read_settings .__read_setting label {
+  position: absolute;
   top: 10px;
   left: 10px;
+  font-size: 13px;
 }
-/* line 156, ../scss/_read.scss */
-.__read .__read_settings .__read_setting.__read_slowstart {
-  top: 90px;
-  left: 10px;
-}
-/* line 161, ../scss/_read.scss */
-.__read .__read_settings .__read_setting.__read_sentencedelay {
-  top: 170px;
-  left: 10px;
-}
-/* line 166, ../scss/_read.scss */
-.__read .__read_settings .__read_setting label {
-  left: 10px;
-}
-/* line 170, ../scss/_read.scss */
+/* line 155, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
-  top: 20px;
-  left: 10px;
+  position: absolute;
+  top: 30px;
+  left: 8px;
   text-align: center;
-  width: 100px;
-  height: 40px;
-  font-size: 24px;
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
   margin: 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  border: none;
 }
-/* line 180, ../scss/_read.scss */
+/* line 167, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input:focus {
+  outline: none;
+  border: 1px solid #3498db;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 174, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
-  top: 32px;
-  left: 125px;
-  width: 350px;
-  height: 18px;
+  position: absolute;
+  top: 39px;
+  left: 75px;
+  width: 150px;
+  height: 10px;
 }
