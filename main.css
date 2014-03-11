@@ -1,13 +1,226 @@
-@font-face {
-    font-family: 'droid';
-    src: url('chrome-extension://__MSG_@@extension_id__/DejaVuSans-webfont.eot');
-    src: url('chrome-extension://__MSG_@@extension_id__/DejaVuSans-webfont.eot?#iefix') format('embedded-opentype'),
-         url('chrome-extension://__MSG_@@extension_id__/DejaVuSans-webfont.woff') format('woff'),
-         url('chrome-extension://__MSG_@@extension_id__/DejaVuSans-webfont.ttf') format('truetype'),
-         url('chrome-extension://__MSG_@@extension_id__/DejaVuSans-webfont.svg#dejavu_sansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+/* line 7, ../scss/_nouislider.scss */
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
+/* line 16, ../scss/_nouislider.scss */
+.noUi-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 21, ../scss/_nouislider.scss */
+.noUi-origin {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/* line 28, ../scss/_nouislider.scss */
+.noUi-handle {
+  position: relative;
+  z-index: 1;
+}
+
+/* line 32, ../scss/_nouislider.scss */
+.noUi-stacking .noUi-handle {
+  /* This class is applied to the lower origin when
+     its values is > 50%. */
+  z-index: 10;
+}
+
+/* line 37, ../scss/_nouislider.scss */
+.noUi-stacking + .noUi-origin {
+  /* Fix stacking order in IE7, which incorrectly
+     creates a new context for the origins. */
+  *z-index: -1;
+}
+
+/* line 42, ../scss/_nouislider.scss */
+.noUi-state-tap .noUi-origin {
+  -webkit-transition: left 0.3s, top 0.3s;
+  transition: left 0.3s, top 0.3s;
+}
+
+/* line 46, ../scss/_nouislider.scss */
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+/* Slider size and handle placement;
+ */
+/* line 52, ../scss/_nouislider.scss */
+.noUi-horizontal {
+  height: 18px;
+}
+
+/* line 55, ../scss/_nouislider.scss */
+.noUi-horizontal .noUi-handle {
+  width: 34px;
+  height: 28px;
+  left: -17px;
+  top: -6px;
+}
+
+/* line 61, ../scss/_nouislider.scss */
+.noUi-horizontal.noUi-extended {
+  padding: 0 15px;
+}
+
+/* line 64, ../scss/_nouislider.scss */
+.noUi-horizontal.noUi-extended .noUi-origin {
+  right: -15px;
+}
+
+/* line 67, ../scss/_nouislider.scss */
+.noUi-vertical {
+  width: 18px;
+}
+
+/* line 70, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-handle {
+  width: 28px;
+  height: 34px;
+  left: -6px;
+  top: -17px;
+}
+
+/* line 76, ../scss/_nouislider.scss */
+.noUi-vertical.noUi-extended {
+  padding: 15px 0;
+}
+
+/* line 79, ../scss/_nouislider.scss */
+.noUi-vertical.noUi-extended .noUi-origin {
+  bottom: -15px;
+}
+
+/* Styling;
+ */
+/* line 85, ../scss/_nouislider.scss */
+.noUi-background {
+  background: #FAFAFA;
+  box-shadow: inset 0 1px 1px #f0f0f0;
+}
+
+/* line 89, ../scss/_nouislider.scss */
+.noUi-connect {
+  background: #3FB8AF;
+  box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
+  -webkit-transition: background 450ms;
+  transition: background 450ms;
+}
+
+/* line 95, ../scss/_nouislider.scss */
+.noUi-origin {
+  border-radius: 2px;
+}
+
+/* line 98, ../scss/_nouislider.scss */
+.noUi-target {
+  border-radius: 4px;
+  border: 1px solid #D3D3D3;
+  box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
+}
+
+/* line 103, ../scss/_nouislider.scss */
+.noUi-target.noUi-connect {
+  box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45), 0 3px 6px -5px #bbbbbb;
+}
+
+/* Handles and cursors;
+ */
+/* line 109, ../scss/_nouislider.scss */
+.noUi-dragable {
+  cursor: w-resize;
+}
+
+/* line 112, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-dragable {
+  cursor: n-resize;
+}
+
+/* line 115, ../scss/_nouislider.scss */
+.noUi-handle {
+  border: 1px solid #D9D9D9;
+  border-radius: 3px;
+  background: #FFF;
+  cursor: default;
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
+}
+
+/* line 124, ../scss/_nouislider.scss */
+.noUi-active {
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;
+}
+
+/* Handle stripes;
+ */
+/* line 133, ../scss/_nouislider.scss */
+.noUi-handle:before,
+.noUi-handle:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 14px;
+  width: 1px;
+  background: #E8E7E6;
+  left: 14px;
+  top: 6px;
+}
+
+/* line 143, ../scss/_nouislider.scss */
+.noUi-handle:after {
+  left: 17px;
+}
+
+/* line 147, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-handle:before,
+.noUi-vertical .noUi-handle:after {
+  width: 14px;
+  height: 1px;
+  left: 6px;
+  top: 14px;
+}
+
+/* line 153, ../scss/_nouislider.scss */
+.noUi-vertical .noUi-handle:after {
+  top: 17px;
+}
+
+/* Disabled state;
+ */
+/* line 160, ../scss/_nouislider.scss */
+[disabled].noUi-connect,
+[disabled] .noUi-connect {
+  background: #B8B8B8;
+}
+
+/* line 163, ../scss/_nouislider.scss */
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+}
+
+/* Blocked state;
+ */
+/* line 170, ../scss/_nouislider.scss */
+.noUi-state-blocked.noUi-connect,
+.noUi-state-blocked .noUi-connect {
+  background: #4FDACF;
 }
 
 /*
@@ -2186,232 +2399,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: #e74c3c;
 }
 
-/* Functional styling;
- * These styles are required for noUiSlider to function.
- * You don't need to change these rules to apply your design.
- */
-/* line 7, ../scss/_nouislider.scss */
-.noUi-target,
-.noUi-target * {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -ms-touch-action: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+/* line 1, ../scss/_images.scss */
+.__read_close_read {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTdCRUI5N0U5RTJEMTFFM0E4RkVGRUUyRUNENkJGRDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTdCRUI5N0Q5RTJEMTFFM0E4RkVGRUUyRUNENkJGRDAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiBNYWNpbnRvc2giPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0iQTJEMjA2MTNFN0E4Q0NBNTNERkQyQzNBNkY2QkIyQTQiIHN0UmVmOmRvY3VtZW50SUQ9IkEyRDIwNjEzRTdBOENDQTUzREZEMkMzQTZGNkJCMkE0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+U5aa8wAAA2RJREFUeNrsmVlIVVEUhq9mVmIJzZFYUQ9pNlBWRGXQYGWDDZYUDZBNUBAEPfXaexQUUYYNWFTSYDYYWUFFD2liaZMVzViUWWlhafYv+E8sNueqUW5F9g8fZ5997jn3/mevvfY654bU19cH2oJCA21Ezogz4ow4I86IM+KMtCUjYX97QkJCQmMfGQfmgqEgBkSCb+A1KAW54DqoDXaBgoKC5jfSgJaADWB8kONDwHSwGdwBe8B+8Ku1hFYvcAIcMUzUgffgGSgHP9WxkWAvuAgGtAYjg8BlkKr6JGxWgxEgFsRzOxwsA3nqs9PAVRprMSM9wRn+0ADnwAqQyJApARXgO6gED0AWmAHmg0c8rx+vM7CljEiMx7H9GEwBh5t47mkwGdzmfjQ4CMJtG0njXRW9AbNoRtSFmctPozinRG/BbPCQ+zK/1tk0EsbM42kLeMJ2OMPnGkgxzktk/ymaDTAZbFSZaxOIsGVkNBjD9k1wlO0eIJt3WQwdU2YmghyuKTJa57jGiPI5RwKcJ0m2jOg7nWFksDlqvwNNbuMoRKljE5jF/K6TYsvIMG5r1WQV3QLzQI3q6wS2gm6qT17brAJnVV8xqGI71paRaG4/ccJqSYgs5jE/VYN0kGn0vwMv2O5uy0hnbr9yjTAlc2FnkHOzfEx4o1upQtKKkWpuI4J8qWSntUHOTQ0yB0LVDaqxZcQLJ4n7Pj4mcnz6PXUFxzmXzCqhP9sVtoyUcNue9dSfCp91VJRROO5To+itNSdZCXuKV2tLmS0jOtukq7ZUuIVGdlrDMFtqhEypmtyilaqda8uILIJ32Z7KBdArGpPBDWUyUyWANI7QfVa9Xmkylse8a5y3ZeSHkZW2g95sfwGL+ISY6ZOak3msXGXAXQxT0W7w2WbReIDPEd6KnqPMlBvhp3UJPFXFZTYLSdG9BtJ2sxmp4+r8UtVf+bzjTVEiTSWpTLXcSArWnkeegwXgFffjWAxmc62IUSHTDvQFM8EhcIVzQ/SR1UCx1bcohgr5QCUpdhL7FpIqjlglwyhGpVhPRUwKRdZfB/mojNlL3qCsB4PZH6meIP1GU8zv+Jdwao7XQbX8URmM+2SakBW7I9eQD0y5smheULXVf1GI+zPUGXFGnBFnxBlxRpwRZ8QZaUy/BRgA/XW5ZYy/jOwAAAAASUVORK5CYII=);
 }
 
-/* line 16, ../scss/_nouislider.scss */
-.noUi-base {
-  width: 100%;
-  height: 100%;
-  position: relative;
+/* line 5, ../scss/_images.scss */
+.__read_restart {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAyCAYAAABLXmvvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2MUI5NkIwRDlFNTIxMUUzQThGRUZFRTJFQ0Q2QkZEMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2MUI5NkIwRTlFNTIxMUUzQThGRUZFRTJFQ0Q2QkZEMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjYxQjk2QjBCOUU1MjExRTNBOEZFRkVFMkVDRDZCRkQwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjYxQjk2QjBDOUU1MjExRTNBOEZFRkVFMkVDRDZCRkQwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+eWPoIQAAAihJREFUeNrsmE1IVFEUgB1TKiFEaVUhY5LQIt0Mbg3BgqSFQghlO7GCUkgMUXBTBImLyKCCQAlpGZggVkokLhIHI92E/7ZShKjwLzXH78IRDhe1d4cJXdwDH9xznTffu2/Ou+diKBaLJe1HJCftU3ixF3uxF3vxwRen2BORSCTIzdbDKHT968PRaDQhKz4MjXAfciEMmQlZ8R6RDXfhltxwNZTCPHyBdzD0P8TX4LbKswQTZXAV2uAF/E5kcXXLqrbjD6yr/Cw8gmdwMl5xKpTDaTU3LI+5W3IjqYRXsCBzIVm5+VtaPOKL8BSeQ76an4YaeA29Ir0DFTCgPmfkN1zFGVALx6EYWmQl2zEhshHJze/5Hq7DZ7XyBqn8wOICOK/yD2AfRX/AL2tuBupgSXJz45ddxIVqPAZPHArQPO63Kr/kIs6zKnnVcW94o8ZhF3HYqmTXmFfjNBdxbJdx0Ah0zU7iWavQXOOEGq+4iIet4jjmKC5X43EX8UfYlHEOVDlIi6xK7nIRD0KPyuv3eh+tt+ExHJF80lW8DM3wU20EZvu8Cad22emuQDucU/MtVr0Eaouf4IFs9oek/bVK+xuQPfuv3Ig5slyAdHX9S+iItx+3yonjnnxpiuzdxdION+Codc2G9OQmWIy3H6/BQ3mM/db7mbqD9Jv8HOaUMpeIE4hpEl+lVZbAGXkCybKq79AHnTAVtPxD/n8gXuzFXuzFXnzgxFsCDAC5w2272i8lFAAAAABJRU5ErkJggg==);
 }
 
-/* line 21, ../scss/_nouislider.scss */
-.noUi-origin {
-  position: absolute;
-  right: 0;
-  top: 0;
-  left: 0;
-  bottom: 0;
+/* line 9, ../scss/_images.scss */
+.__read_config {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAyCAYAAABLXmvvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2MUI5NkIwOTlFNTIxMUUzQThGRUZFRTJFQ0Q2QkZEMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2MUI5NkIwQTlFNTIxMUUzQThGRUZFRTJFQ0Q2QkZEMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjJBMEIzM0UwOUU1MTExRTNBOEZFRkVFMkVDRDZCRkQwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjYxQjk2QjA4OUU1MjExRTNBOEZFRkVFMkVDRDZCRkQwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+fxJVGwAAAmFJREFUeNrsWD1IY0EQ9qmFXKMo/iT+g4d6JypJCjkFQUX0TmzEXsFC7/wrRWLEqIh2J1rYWFsJV5yVlTYiCXh4iCCeouI/2Igop8RvYAPLYzfvJ5Ig7MDHvJ3M7Ldvdt7sEi0UCiXEQxIT4iSKWBErYkX8/oiTww+appkKcLvdTqgtIB84BuqDweCJUZz+TLDzxp+APPZcBJS+earxdh8E5nJKEDcuEsRl2iZG8DTUX+gWzpYG1aRzbYA9lfPph9qF9kci1sK55/cYQTNQI5zfJNM9gEMwzzmwzNLeydlnsP+joj1OliyoSjceM8gcFZxXYP9oNdVdwGmUX8wu0G2JGOm5hhqOkrgP89zbqepqg4mfDX5vtFzVKK4UqO+SmE2gFSgGvgIbEr8BzJNtWNUej6cMilBC3QhoE/hTx6pDCl+4RSayxXwR+N/SJwnsAL8DgcC6iPgCKscgfR0gXRVkqB3ql0HsBYidolTnmCiYfxL7kYlYh2yP94FHg+BqG4VIlb0HrMmIK4HPAKVtUTLJGNKaKzitxiX+P6hmsJ0VSPM3My2TOtolkCGYjI7CnyxDVIyDrML1cgUUoiaeRC1TSMzI/SZaZSSZBqnXznkcjLJz1dhpILRvC1ESN2KeCastc4W7ZViR/7qxD+QFpohdLhdt9jZneqD2B0yxghMJ2WcpHFjSneNnpi8CLN1zULV0RKJIDpgtHaqXCodzDQDN8LnT3UKyYPPJiktKHOFKRJ8OLSSJmeZBMBSLW+YVQ1j+xORCj7ejPT9kwxt28lgWTf35oogVsSJWxIpYJq8CDAA6gbfp956yDgAAAABJRU5ErkJggg==);
 }
 
-/* line 28, ../scss/_nouislider.scss */
-.noUi-handle {
-  position: relative;
-  z-index: 1;
+@font-face {
+  font-family: 'droid';
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DroidSans-webfont.eot");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DroidSans-webfont.eot?#iefix") format("embedded-opentype"), url("chrome-extension://__MSG_@@extension_id__/fonts/DroidSans-webfont.woff") format("woff"), url("chrome-extension://__MSG_@@extension_id__/fonts/DroidSans-webfont.ttf") format("truetype"), url("chrome-extension://__MSG_@@extension_id__/fonts/DroidSans-webfont.svg#dejavu_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* line 32, ../scss/_nouislider.scss */
-.noUi-stacking .noUi-handle {
-  /* This class is applied to the lower origin when
-     its values is > 50%. */
-  z-index: 10;
-}
-
-/* line 37, ../scss/_nouislider.scss */
-.noUi-stacking + .noUi-origin {
-  /* Fix stacking order in IE7, which incorrectly
-     creates a new context for the origins. */
-  *z-index: -1;
-}
-
-/* line 42, ../scss/_nouislider.scss */
-.noUi-state-tap .noUi-origin {
-  -webkit-transition: left 0.3s, top 0.3s;
-  transition: left 0.3s, top 0.3s;
-}
-
-/* line 46, ../scss/_nouislider.scss */
-.noUi-state-drag * {
-  cursor: inherit !important;
-}
-
-/* Slider size and handle placement;
- */
-/* line 52, ../scss/_nouislider.scss */
-.noUi-horizontal {
-  height: 18px;
-}
-
-/* line 55, ../scss/_nouislider.scss */
-.noUi-horizontal .noUi-handle {
-  width: 34px;
-  height: 28px;
-  left: -17px;
-  top: -6px;
-}
-
-/* line 61, ../scss/_nouislider.scss */
-.noUi-horizontal.noUi-extended {
-  padding: 0 15px;
-}
-
-/* line 64, ../scss/_nouislider.scss */
-.noUi-horizontal.noUi-extended .noUi-origin {
-  right: -15px;
-}
-
-/* line 67, ../scss/_nouislider.scss */
-.noUi-vertical {
-  width: 18px;
-}
-
-/* line 70, ../scss/_nouislider.scss */
-.noUi-vertical .noUi-handle {
-  width: 28px;
-  height: 34px;
-  left: -6px;
-  top: -17px;
-}
-
-/* line 76, ../scss/_nouislider.scss */
-.noUi-vertical.noUi-extended {
-  padding: 15px 0;
-}
-
-/* line 79, ../scss/_nouislider.scss */
-.noUi-vertical.noUi-extended .noUi-origin {
-  bottom: -15px;
-}
-
-/* Styling;
- */
-/* line 85, ../scss/_nouislider.scss */
-.noUi-background {
-  background: #FAFAFA;
-  box-shadow: inset 0 1px 1px #f0f0f0;
-}
-
-/* line 89, ../scss/_nouislider.scss */
-.noUi-connect {
-  background: #3FB8AF;
-  box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
-  -webkit-transition: background 450ms;
-  transition: background 450ms;
-}
-
-/* line 95, ../scss/_nouislider.scss */
-.noUi-origin {
-  border-radius: 2px;
-}
-
-/* line 98, ../scss/_nouislider.scss */
-.noUi-target {
-  border-radius: 4px;
-  border: 1px solid #D3D3D3;
-  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbbbbb;
-}
-
-/* line 103, ../scss/_nouislider.scss */
-.noUi-target.noUi-connect {
-  box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45), 0 3px 6px -5px #bbbbbb;
-}
-
-/* Handles and cursors;
- */
-/* line 109, ../scss/_nouislider.scss */
-.noUi-dragable {
-  cursor: w-resize;
-}
-
-/* line 112, ../scss/_nouislider.scss */
-.noUi-vertical .noUi-dragable {
-  cursor: n-resize;
-}
-
-/* line 115, ../scss/_nouislider.scss */
-.noUi-handle {
-  border: 1px solid #D9D9D9;
-  border-radius: 3px;
-  background: #FFF;
-  cursor: default;
-  box-shadow: inset 0 0 1px white, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbbbbb;
-}
-
-/* line 124, ../scss/_nouislider.scss */
-.noUi-active {
-  box-shadow: inset 0 0 1px white, inset 0 1px 7px #dddddd, 0 3px 6px -3px #bbbbbb;
-}
-
-/* Handle stripes;
- */
-/* line 133, ../scss/_nouislider.scss */
-.noUi-handle:before,
-.noUi-handle:after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 14px;
-  width: 1px;
-  background: #E8E7E6;
-  left: 14px;
-  top: 6px;
-}
-
-/* line 143, ../scss/_nouislider.scss */
-.noUi-handle:after {
-  left: 17px;
-}
-
-/* line 147, ../scss/_nouislider.scss */
-.noUi-vertical .noUi-handle:before,
-.noUi-vertical .noUi-handle:after {
-  width: 14px;
-  height: 1px;
-  left: 6px;
-  top: 14px;
-}
-
-/* line 153, ../scss/_nouislider.scss */
-.noUi-vertical .noUi-handle:after {
-  top: 17px;
-}
-
-/* Disabled state;
- */
-/* line 160, ../scss/_nouislider.scss */
-[disabled].noUi-connect,
-[disabled] .noUi-connect {
-  background: #B8B8B8;
-}
-
-/* line 163, ../scss/_nouislider.scss */
-[disabled] .noUi-handle {
-  cursor: not-allowed;
-}
-
-/* Blocked state;
- */
-/* line 170, ../scss/_nouislider.scss */
-.noUi-state-blocked.noUi-connect,
-.noUi-state-blocked .noUi-connect {
-  background: #4FDACF;
-}
-
-/* line 4, ../scss/_read.scss */
+/* line 14, ../scss/_read.scss */
 .__read {
   position: fixed;
   display: none;
@@ -2425,23 +2436,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 0;
   margin: 0;
   z-index: 999999;
-  cursor: pointer;
   color: #000;
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
   overflow: hidden;
 }
-/* line 21, ../scss/_read.scss */
+/* line 30, ../scss/_read.scss */
 .__read * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 25, ../scss/_read.scss */
+/* line 34, ../scss/_read.scss */
 .__read.open {
   height: 300px;
 }
-/* line 27, ../scss/_read.scss */
+/* line 36, ../scss/_read.scss */
 .__read .__read_bar {
   width: 100%;
   height: 50px;
@@ -2454,7 +2464,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-image: linear-gradient(top, #ffffff 60%, #eeeeee);
   overflow: hidden;
 }
-/* line 35, ../scss/_read.scss */
+/* line 44, ../scss/_read.scss */
 .__read .__read_bar .__read_position {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -2465,7 +2475,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin: 0 auto;
   line-height: 30px;
 }
-/* line 44, ../scss/_read.scss */
+/* line 53, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_indicator {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -2478,7 +2488,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   left: 220px;
   background-color: rgba(150, 150, 150, 0.2);
 }
-/* line 55, ../scss/_read.scss */
+/* line 64, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_display, .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
   position: absolute;
@@ -2489,68 +2499,68 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   width: 300px;
   font-family: 'droid', serif;
   font-size: 30px;
+  cursor: pointer;
 }
-/* line 65, ../scss/_read.scss */
+/* line 75, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {
-  top: -999em;
   padding: 0;
 }
-/* line 71, ../scss/_read.scss */
+/* line 81, ../scss/_read.scss */
 .__read .__read_bar .__read_config {
   position: absolute;
-  top: 5px;
+  top: 0;
   left: 8px;
   width: 30px;
   height: 47px;
   margin: 0;
   padding: 0;
   font-size: 36px;
-  font-family: 'droid', serif;
   line-height: 36px;
   opacity: 0.1;
+  cursor: pointer;
 }
-/* line 83, ../scss/_read.scss */
+/* line 93, ../scss/_read.scss */
 .__read .__read_bar .__read_config.active, .__read .__read_bar .__read_config:hover {
   opacity: 0.4;
 }
-/* line 86, ../scss/_read.scss */
+/* line 96, ../scss/_read.scss */
 .__read .__read_bar .__read_restart {
   position: absolute;
-  top: 5px;
+  top: 0;
   left: 45px;
-  width: 50px;
+  width: 30px;
   height: 47px;
   padding: 0;
   margin: 0;
-  font-size: 35px;
-  font-family: 'droid', serif;
+  font-size: 37px;
   line-height: 37px;
   opacity: 0.1;
+  cursor: pointer;
 }
-/* line 98, ../scss/_read.scss */
+/* line 108, ../scss/_read.scss */
 .__read .__read_bar .__read_restart.active, .__read .__read_bar .__read_restart:hover {
   opacity: 0.4;
 }
-/* line 101, ../scss/_read.scss */
+/* line 111, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 30px;
+  top: 0;
+  right: 10px;
+  width: 40px;
   height: 47px;
   padding: 0;
   margin: 0;
   line-height: 36px;
   font-size: 30px;
-  font-family: 'droid', serif;
   opacity: 0.1;
+  cursor: pointer;
 }
-/* line 113, ../scss/_read.scss */
+/* line 123, ../scss/_read.scss */
 .__read .__read_bar .__read_close_read:hover {
   opacity: 0.4;
 }
-/* line 117, ../scss/_read.scss */
+/* line 127, ../scss/_read.scss */
 .__read .__read_settings {
   position: absolute;
   top: 50px;
@@ -2559,7 +2569,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: #c6d6dc;
   z-index: 10;
 }
-/* line 126, ../scss/_read.scss */
+/* line 136, ../scss/_read.scss */
 .__read .__read_settings .__read_setting_common, .__read .__read_settings .__read_setting.__read_wpm, .__read .__read_settings .__read_setting.__read_slowstart, .__read .__read_settings .__read_setting.__read_sentencedelay, .__read .__read_settings .__read_setting label, .__read .__read_settings .__read_setting input, .__read .__read_settings .__read_setting .__read_slider {
   display: block;
   position: absolute;
@@ -2569,33 +2579,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-family: 'droid', serif;
   font-size: 14px;
 }
-/* line 134, ../scss/_read.scss */
+/* line 144, ../scss/_read.scss */
 .__read .__read_settings .__read_setting {
   top: 0;
   left: 0;
   width: 200px;
   height: 80px;
 }
-/* line 139, ../scss/_read.scss */
+/* line 149, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_wpm {
   top: 10px;
   left: 10px;
 }
-/* line 144, ../scss/_read.scss */
+/* line 154, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_slowstart {
   top: 90px;
   left: 10px;
 }
-/* line 149, ../scss/_read.scss */
+/* line 159, ../scss/_read.scss */
 .__read .__read_settings .__read_setting.__read_sentencedelay {
   top: 170px;
   left: 10px;
 }
-/* line 154, ../scss/_read.scss */
+/* line 164, ../scss/_read.scss */
 .__read .__read_settings .__read_setting label {
   left: 10px;
 }
-/* line 158, ../scss/_read.scss */
+/* line 168, ../scss/_read.scss */
 .__read .__read_settings .__read_setting input {
   top: 20px;
   left: 10px;
@@ -2605,35 +2615,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 24px;
   margin: 0;
 }
-/* line 168, ../scss/_read.scss */
+/* line 178, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   top: 32px;
   left: 125px;
   width: 350px;
   height: 18px;
 }
-
-/*body { */
-/*padding: 0;*/
-/*margin: 0;*/
-/*}*/
-/*.wrapper {*/
-/*position: relative;*/
-/*@include box-sizing(border-box);*/
-/*width: 500px;*/
-/*margin: 0 auto;*/
-/*.input {*/
-/*position: absolute;*/
-/*@include box-sizing(border-box);*/
-/*top: 20px;*/
-/*left: 0;*/
-/*width: 500px;*/
-/*textarea {*/
-/*@include box-sizing(border-box);*/
-/*font-family: 'droid', serif;*/
-/*font-size: 12px;*/
-/*width: 500px;*/
-/*height: 300px;*/
-/*}*/
-/*}*/
-/*}*/

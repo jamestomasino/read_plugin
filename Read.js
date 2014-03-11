@@ -2,17 +2,17 @@
 	"use strict";
 
 	/*jshint multistr: true */
-	var ele = '<div class="__read __progrecss">\
-			<div class="__read_bar">\
+	var ele = '<div class="__read">\
+			<div class="__read_bar progrecss">\
 				<div class="__read_position">\
 					<div class="__read_indicator"></div>\
 					<div class="__read_display"></div>\
 					<div class="__read_before"></div>\
 					<div class="__read_letter"></div>\
 				</div>\
-				<div class="__read_config">&#9881;</div>\
-				<div class="__read_restart">&#8635;</div>\
-				<div class="__read_close_read">&#10007;</div>\
+				<div class="__read_config"></div>\
+				<div class="__read_restart"></div>\
+				<div class="__read_close_read"></div>\
 			</div>\
 			<div class="__read_settings">\
 				<div class="__read_setting __read_wpm">\
@@ -123,7 +123,7 @@
 			this.clearDisplay();
 			this._isPlaying = false;
 			this._isEnded = true;
-			this._options.element.attr('data-progrecss', 100 );
+			this._barElement.attr('data-progrecss', 100 );
 		}
 	};
 
@@ -147,7 +147,7 @@
 		}
 
 		if (this._options.element && this._block) {
-			this._options.element.attr('data-progrecss', parseInt(this._block.getProgress() * 100, 10) );
+			this._barElement.attr('data-progrecss', parseInt(this._block.getProgress() * 100, 10) );
 		}
 	};
 
