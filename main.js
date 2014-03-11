@@ -3,7 +3,10 @@
 	var readOptions = {
 		"wpm": 300,
 		"slowStartCount": 5,
-		"sentenceDelay": 2.5
+		"sentenceDelay": 2.5,
+		"otherPuncDelay": 1.5,
+		"shortWordDelay": 1.3,
+		"longWordDelay": 1.4
 	};
 
 	chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
@@ -30,6 +33,21 @@
 	$(document).on( 'blur', '.__read .__read_sentence_delay', function () {
 		var val = Math.min( 5, Math.max( 0, Number(this.value)));
 		setReadOptions( {"sentenceDelay": val} );
+	});
+
+	$(document).on( 'blur', '.__read .__read_punc_delay', function () {
+		var val = Math.min( 5, Math.max( 0, Number(this.value)));
+		setReadOptions( {"otherPuncDelay": val} );
+	});
+
+	$(document).on( 'blur', '.__read .__read_short_word_delay', function () {
+		var val = Math.min( 5, Math.max( 0, Number(this.value)));
+		setReadOptions( {"shortWordDelay": val} );
+	});
+
+	$(document).on( 'blur', '.__read .__read_long_word_delay', function () {
+		var val = Math.min( 5, Math.max( 0, Number(this.value)));
+		setReadOptions( {"longWordDelay": val} );
 	});
 
 	function setReadOptions ( myOptions ) {
