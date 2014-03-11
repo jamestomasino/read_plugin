@@ -257,7 +257,7 @@
 				resolution: 0.1
 			},
 			set: $.proxy( function() {
-				this.setshortWordDelay( this._shortWordDelayElement.val() );
+				this.setShortWordDelay( this._shortWordDelayElement.val() );
 				this._shortWordDelayElement.blur();
 			},this )
 		});
@@ -274,7 +274,7 @@
 				resolution: 0.1
 			},
 			set: $.proxy( function() {
-				this.setlongWordDelay( this._longWordDelayElement.val() );
+				this.setLongWordDelay( this._longWordDelayElement.val() );
 				this._longWordDelayElement.blur();
 			},this )
 		});
