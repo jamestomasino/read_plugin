@@ -19,8 +19,7 @@
 
 				getArticle.success(function( result ) {
 					getReadOptions( $(result).find('article h1').text() + $(result).find('article > section').text() );
-				}).
-				getArticle.error(function( jqXHR, textStatus, errorThrown ) {
+				}).error(function( jqXHR, textStatus, errorThrown ) {
 					getReadOptions ( document.body.innerText || document.body.textContent );
 				});
 				break;
