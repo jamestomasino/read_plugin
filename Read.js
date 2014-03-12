@@ -182,6 +182,7 @@
 			range: [300,1200],
 			start: this._options.wpm,
 			step: 25,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -199,6 +200,7 @@
 			range: [0,5],
 			start: this._options.slowStartCount,
 			step: 1,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -216,6 +218,7 @@
 			range: [0,5],
 			start: this._options.sentenceDelay,
 			step: 0.1,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -233,6 +236,7 @@
 			range: [0,5],
 			start: this._options.otherPuncDelay,
 			step: 0.1,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -250,6 +254,7 @@
 			range: [0,5],
 			start: this._options.shortWordDelay,
 			step: 0.1,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
@@ -267,6 +272,7 @@
 			range: [0,5],
 			start: this._options.longWordDelay,
 			step: 0.1,
+			connect: 'lower',
 			handles: 1,
 			behaviour: 'extend-tap',
 			serialization: {
