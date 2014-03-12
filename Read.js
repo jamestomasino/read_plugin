@@ -16,33 +16,33 @@
 			</div>\
 			<div class="__read_settings">\
 				<div class="__read_setting __read_wpm">\
-					<label>Words Per Minute</label>\
-					<input class="__read_speed" type="text"/>\
+					<label class="__read_label">Words Per Minute</label>\
+					<input class="__read_input __read_speed" type="text"/>\
 					<div class="__read_slider __read_speed_slider"></div>\
 				</div>\
 				<div class="__read_setting __read_slowstart">\
-					<label>Slow Start Speed</label>\
-					<input class="__read_slow_start" type="text"/>\
+					<label class="__read_label">Slow Start Speed</label>\
+					<input class="__read_input __read_slow_start" type="text"/>\
 					<div class="__read_slider __read_slow_start_slider"></div>\
 				</div>\
 				<div class="__read_setting __read_sentencedelay">\
-					<label>Sentence Delay</label>\
-					<input class="__read_sentence_delay" type="text"/>\
+					<label class="__read_label">Sentence Delay</label>\
+					<input class="__read_input __read_sentence_delay" type="text"/>\
 					<div class="__read_slider __read_sentence_delay_slider"></div>\
 				</div>\
 				<div class="__read_setting __read_puncdelay">\
-					<label>Other Punctuation Delay</label>\
-					<input class="__read_punc_delay" type="text"/>\
+					<label class="__read_label">Other Punctuation Delay</label>\
+					<input class="__read_input __read_punc_delay" type="text"/>\
 					<div class="__read_slider __read_punc_delay_slider"></div>\
 				</div>\
 				<div class="__read_setting __read_shortworddelay">\
-					<label>Short Word Delay</label>\
-					<input class="__read_short_word_delay" type="text"/>\
+					<label class="__read_label">Short Word Delay</label>\
+					<input class="__read_input __read_short_word_delay" type="text"/>\
 					<div class="__read_slider __read_short_word_delay_slider"></div>\
 				</div>\
 				<div class="__read_setting __read_longworddelay">\
-					<label>Long Word Delay</label>\
-					<input class="__read_long_word_delay" type="text"/>\
+					<label class="__read_label">Long Word Delay</label>\
+					<input class="__read_input __read_long_word_delay" type="text"/>\
 					<div class="__read_slider __read_long_word_delay_slider"></div>\
 				</div>\
 			</div>\
