@@ -15,7 +15,16 @@
 				getReadOptions ( request.selectedText );
 				break;
 			case "readFullPage":
-				getReadOptions ( document.body.innerText || document.body.textContent );
+				var getArticle = $.get( 'http://www.readability.com/m?url=' + document.URL );
+
+				getArticle.success(function( result ) {
+					getReadOptions( $(result).find('article h1').text() + $(result).find('article > section').text() );
+				}).
+				getArticle.error(function( jqXHR, textStatus, errorThrown ) {
+					getReadOptions ( document.body.innerText || document.body.textContent );
+				});
+				break;
+			default:
 				break;
 		}
 	});
