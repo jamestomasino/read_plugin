@@ -70,9 +70,9 @@
 
 /* line 55, ../scss/_nouislider.scss */
 .noUi-horizontal .noUi-handle {
-  width: 26px;
+  width: 32px;
   height: 20px;
-  left: -13px;
+  left: -16px;
   top: -6px;
 }
 
@@ -119,7 +119,7 @@
 
 /* line 89, ../scss/_nouislider.scss */
 .noUi-connect {
-  background: #3FB8AF;
+  background: #3498DB;
   box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
   -webkit-transition: background 450ms;
   transition: background 450ms;
@@ -179,13 +179,13 @@
   height: 14px;
   width: 1px;
   background: #E8E7E6;
-  left: 10px;
+  left: 14px;
   top: 2px;
 }
 
 /* line 143, ../scss/_nouislider.scss */
 .noUi-handle:after {
-  left: 12px;
+  left: 16px;
 }
 
 /* line 147, ../scss/_nouislider.scss */
@@ -2436,7 +2436,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 0;
   margin: 0;
   text-align: left;
-  z-index: 999999;
+  z-index: 2147483647;
   color: #000;
   -webkit-transition-property: max-height;
   -moz-transition-property: max-height;
@@ -2595,15 +2595,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-sizing: border-box;
   font-family: "droid", serif;
 }
-/* line 148, ../scss/_read.scss */
-.__read .__read_settings .__read_setting label {
+/* line 149, ../scss/_read.scss */
+.__read .__read_settings .__read_setting label.__read_label {
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 13px;
 }
-/* line 155, ../scss/_read.scss */
-.__read .__read_settings .__read_setting input {
+/* line 158, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input.__read_input {
   position: absolute;
   top: 30px;
   left: 8px;
@@ -2612,6 +2612,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   height: 30px;
   font-size: 16px;
   margin: 0;
+  padding: 0;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
@@ -2622,8 +2623,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
   border: none;
 }
-/* line 167, ../scss/_read.scss */
-.__read .__read_settings .__read_setting input:focus {
+/* line 170, ../scss/_read.scss */
+.__read .__read_settings .__read_setting input.__read_input:focus {
   outline: none;
   border: 1px solid #3498db;
   -webkit-border-radius: 8px;
@@ -2632,7 +2633,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -o-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 174, ../scss/_read.scss */
+/* line 178, ../scss/_read.scss */
 .__read .__read_settings .__read_setting .__read_slider {
   position: absolute;
   top: 39px;
