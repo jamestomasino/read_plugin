@@ -15,7 +15,7 @@
 				getReadOptions ( request.selectedText );
 				break;
 			case "readFullPage":
-				var getArticle = $.get( 'http://www.readability.com/m?url=' + document.URL );
+				var getArticle = $.get( '//www.readability.com/m?url=' + document.URL );
 
 				getArticle.success(function( result ) {
 					getReadOptions( $(result).find('article h1').text() + $(result).find('article > section').text() );
