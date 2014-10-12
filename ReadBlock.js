@@ -13,6 +13,7 @@
 	var v = '['+vowels+']';
 	var vccv = new RegExp('('+v+c+')('+c+v+')', 'g');
 	var simple = new RegExp('(.{2,4}'+v+')'+'('+c+')', 'g');
+	var puncSplit = /(.+?)([\.\,])(.+)/;
 
 	var ReadBlock = function ( val ) {
 		this.val = val;
@@ -32,23 +33,37 @@
 
 		// Build word chain
 		var rawWords = this.val.match(wordRegex);
+
+		// Extra splits on odd punctuation situations
 		var i = rawWords.length; while (i--) {
 			var w = rawWords[i];
-
-			// Split up long words as best we can
-			if (w.length > 13) {
-				w = this.break(w);
-				var subWords = w.match(wordRegex);
-				var j = subWords.length; while (j--) {
+			w = this.puncBreak(w);
+			var subWords = w.match(wordRegex);
+			var j = subWords.length; while (j--) {
+				if (subWords[j].length > 13) {
+					var subw = this.break(subWords[j]);
+					var subsubWords = w.match(subw);
+					var k = subsubWords.length; while (k--) {
+						this.words.unshift( new ReadWord(subsubWords[k]) ) ;
+					}
+				} else {
 					this.words.unshift( new ReadWord(subWords[j]) ) ;
 				}
-			} else {
-				this.words.unshift( new ReadWord(w) ) ;
 			}
 		}
-
 	};
 
+	p.puncBreak = function (word) {
+		var parts = puncSplit.exec(word);
+		var ret = [];
+		if (parts) {
+			ret.push (parts[1]+parts[2]);
+			ret = ret.concat(this.puncBreak(parts[3]));
+		} else {
+			ret = [word];
+		}
+		return ret.join(' ');
+	};
 
 	p.break = function (word) {
 		// punctuation, prefix, center, suffix, punctuation
