@@ -42,7 +42,7 @@
 			var j = subWords.length; while (j--) {
 				if (subWords[j].length > 13) {
 					var subw = this.break(subWords[j]);
-					var subsubWords = w.match(subw);
+					var subsubWords = subw.match(wordRegex);
 					var k = subsubWords.length; while (k--) {
 						this.words.unshift( new ReadWord(subsubWords[k]) ) ;
 					}
