@@ -15,10 +15,17 @@
 				getReadOptions ( request.selectedText );
 				break;
 			case "readFullPage":
-				var getArticle = $.get( '//www.readability.com/m?url=' + document.URL );
+				var getArticle = $.get( '//read.tomasino.org/read.py?url=' + document.URL );
 
 				getArticle.success(function( result ) {
-					getReadOptions( $(result).find('article h1').text() + $(result).find('article > section').text() );
+					if (result.error) {
+						getReadOptions( result.messages );
+					} else {
+						var title = result.title;
+						var content = result.content;
+						var text = $(content).text();
+						getReadOptions( title + "\n\n" + text );
+					}
 				}).error(function( jqXHR, textStatus, errorThrown ) {
 					getReadOptions ( document.body.innerText || document.body.textContent );
 				});
