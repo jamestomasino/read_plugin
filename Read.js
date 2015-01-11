@@ -179,7 +179,7 @@
 
 		// WPM
 		this._speedSliderElement.noUiSlider({
-			range: [300,1200],
+			range: [300,1500],
 			start: this._options.wpm,
 			step: 25,
 			connect: 'lower',
