@@ -2,6 +2,7 @@
 	"use strict";
 
 	var textRegex = /\w/g;
+	var numRegex = /\d/g;
 	var ReadWord = function ( val ) {
 		this.val = val;
 
@@ -15,6 +16,7 @@
 		this.hasOtherPunc = false;
 		this.isShort = false;
 		this.isLong = false;
+		this.isNumeric = false;
 
 		this.process();
 	};
@@ -35,11 +37,14 @@
 
 		if (firstChar == "\"" || firstChar == "'" || firstChar == "(" || firstChar =="“" || firstChar == "‘" ) {
 			this.hasLeadingQuote = true;
+			this.hasOtherPunc = true;
 		}
 
 		if (this.hasTrailingQuote) {
 			lastChar = this.val.substr(-2,1);
 		}
+
+		this.isNumeric = this.val.match(numRegex);
 
 		switch (lastChar) {
 			case ".":

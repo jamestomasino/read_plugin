@@ -45,6 +45,11 @@
 					<input class="__read_input __read_long_word_delay" type="text"/>\
 					<div class="__read_slider __read_long_word_delay_slider"></div>\
 				</div>\
+				<div class="__read_setting __read_numericdelay">\
+					<label class="__read_label">Numeric Delay</label>\
+					<input class="__read_input __read_numeric_delay" type="text"/>\
+					<div class="__read_slider __read_numeric_delay_slider"></div>\
+				</div>\
 			</div>\
 		</div>';
 
@@ -66,7 +71,9 @@
 		sentenceDelay: 2.5,
 		otherPuncDelay: 1.5,
 		shortWordDelay: 1.3,
-		longWordDelay: 1.4
+		longWordDelay: 1.4,
+		numericDelay: 2.0
+
 	};
 
 	var whiteSpace = /[\n\r\s]/;
@@ -100,6 +107,9 @@
 
 		this._longWordDelayElement = null;
 		this._longWordDelaySliderElement = null;
+
+		this._numericDelayElement = null;
+		this._numericDelaySliderElement = null;
 
 		this._currentWord = null;
 		this._delay = 0;
@@ -138,6 +148,7 @@
 			if ( this._currentWord.hasOtherPunc ) time *= this._options.otherPuncDelay;
 			if ( this._currentWord.isShort ) time *= this._options.shortWordDelay;
 			if ( this._currentWord.isLong ) time *= this._options.longWordDelay;
+			if ( this._currentWord.isNumeric ) time *= this._options.numericDelay;
 
 			this._slowStartCount = (this._slowStartCount - 1 ) || 1;
 			time = time * this._slowStartCount;
@@ -285,6 +296,23 @@
 			},this )
 		});
 
+		// Numeric Delay
+		this._numericDelaySliderElement.noUiSlider({
+			range: [0,5],
+			start: this._options.numericDelay,
+			step: 0.1,
+			connect: 'lower',
+			handles: 1,
+			behaviour: 'extend-tap',
+			serialization: {
+				to: [ this._numericDelayElement ],
+				resolution: 0.1
+			},
+			set: $.proxy( function() {
+				this.setNumericDelay( this._numericDelayElement.val() );
+				this._numericDelayElement.blur();
+			},this )
+		});
 
 	};
 
@@ -390,6 +418,9 @@
 		this._longWordDelayElement = this._options.element.find('.__read_long_word_delay');
 		this._longWordDelaySliderElement = this._options.element.find('.__read_long_word_delay_slider');
 
+		this._numericDelayElement = this._options.element.find('.__read_numeric_delay');
+		this._numericDelaySliderElement = this._options.element.find('.__read_numeric_delay_slider');
+
 		this._speedElement = this._options.element.find('.__read_speed');
 		this._speedElement.on ( "blur", $.proxy(this.updateWPMFromUI, this) );
 		this._speedElement.on ( "keydown", function(e) { if (e.keyCode == 13) { $(this).blur(); } });
@@ -477,6 +508,13 @@
 		val = Math.max (1, val);
 		val = Math.min (10, val);
 		this._options.longWordDelay = val;
+	};
+
+	p.setNumericDelay = function ( val ) {
+		val = Number(val);
+		val = Math.max (1, val);
+		val = Math.min (10, val);
+		this._options.numericDelay = val;
 	};
 
 	p.setSlowStartCount = function ( val ) {
