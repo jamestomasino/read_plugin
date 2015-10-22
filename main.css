@@ -2438,6 +2438,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   text-align: left;
   z-index: 2147483647;
   color: #000;
+  word-wrap: normal;
   -webkit-transition-property: max-height;
   -moz-transition-property: max-height;
   -o-transition-property: max-height;
