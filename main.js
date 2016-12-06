@@ -15,17 +15,10 @@
 				getReadOptions ( request.selectedText );
 				break;
 			case "readFullPage":
-				var getArticle = $.get( '//readparser.herokuapp.com/?url=' + document.URL );
+				var getArticle = $.get( 'https://readparser.herokuapp.com/?url=' + document.URL );
 
 				getArticle.success(function( result ) {
-					if (result.error) {
-						getReadOptions( result.messages );
-					} else {
-						var title = result.title;
-						var content = result.content;
-						var text = $(content).text();
-						getReadOptions( title + "\n\n" + text );
-					}
+					getReadOptions( result );
 				}).error(function( jqXHR, textStatus, errorThrown ) {
 					getReadOptions ( document.body.innerText || document.body.textContent );
 				});
