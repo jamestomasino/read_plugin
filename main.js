@@ -15,7 +15,7 @@
 				getReadOptions ( request.selectedText );
 				break;
 			case "readFullPage":
-				var getArticle = $.get( '//read.tomasino.org/read.py?url=' + document.URL );
+				var getArticle = $.get( '//readparser.herokuapp.com/?url=' + document.URL );
 
 				getArticle.success(function( result ) {
 					if (result.error) {
