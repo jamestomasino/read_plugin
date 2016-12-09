@@ -15,7 +15,7 @@ Select text on any website by dragging over it with your mouse. When you right c
 
 - `Pause` by clicking on the words in the reading bar.
 - `Resume` by clicking on the words in the reading bar again.
-- Change your reading speed by entering a new number on the left.
+- Change or finesse your reading speed by expanding the options panel on the left.
 
 - - - - -
 
@@ -23,7 +23,7 @@ Select text on any website by dragging over it with your mouse. When you right c
 
 This tool handles all of the parsing and display logic on the client-side. There is no dictionary look-up or database of words referenced. Everything is parsed by regular expressions. Even with these limitations, read offers some unique features.
 
-##### RSVP 
+##### RSVP
 
 Rapid serial visual presentation allows for readers to keep their eyes focused on a single point on the page, saving a massive amount of time normally lost in reading. As the speed of this serial presentation increases, sub-vocalization also decreases and astounding speeds can be reached with great comprehension.
 
@@ -49,9 +49,28 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 - - - - -
 
-#### Library
+#### Change Log
 
-If you are interested in making your own tool using the power of Read, start by grabbing the latest library from [this project](https://github.com/jamestomasino/read).
+- v2.0.5 - Added loading icon while fetching full-page text through Mercury for better UX
+- v2.0.4 - Readability shut down its API, so I've migrated to a new one called Mercury
+- v2.0.3 - Explicitly set word-wrap properties to override sites that add breaks
+- v2.0.2 - Added Numeric Delay option to slow down numbers
+- v2.0.1 - Allow users to Read at speeds up to 1500wpm (increased from 1200).
+- v2.0.0 - Completely rebuilt access to the Readability API by using a proxy. Now supports HTTPS.
+- v1.0.0 - We are now parsing the page to get only the relevant article content!
+- v0.4.0 - 3 new configurable settings, liquid UI
+- v0.3.7 - All settings are stored in chrome sync.
+- v0.3.5 - Abandoned Unicode Symbols and just embedded images so I could use a better font.
+- v0.3.4 - DroidSans is a pack of lies. DejaVuSans has proper symbols.
+- v0.3.3 - Apparently you have to fully embed custom fonts. Boo.
+- v0.3.2 - Font fix for PC (missing unicode chars)
+- v0.3.1 - CSS fixes
+- v0.3.0 - Added a drop-down menu for options and a restart button
+- v0.2.2 - Better WPM settings
+- v0.2.0 - Read icon reads whole page
+- v0.1.3 - Fixed pause/play and alignment
+
+- - - - -
 
 #### License
 
@@ -59,4 +78,4 @@ Unless stated otherwise, everything in this repository is dedicated to the publi
 
 #### Issues
 
-If you find a bug or want to suggest a new feature, please log an issue [over here](https://github.com/jamestomasino/read_plugin/issues).
+If you find a bug or want to suggest a new feature, please log an issue [over here](https://github.com/jamestomasino/read_plugin/issues). I welcome pull requests!
