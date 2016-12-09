@@ -22,8 +22,23 @@
 				getArticle.success(function( result ) {
 					playReadContent( result );
 				}).error(function( jqXHR, textStatus, errorThrown ) {
-					playReadContent( document.body.innerText || document.body.textContent );
-				});
+					var text = '';
+					var elements = $('p, li, h1, h2, h3, h4, h5, h6, span, pre');
+					elements.each(function(index, element) {
+						element = $(element);
+						var elementText = element
+							.clone()
+							.children('sup')
+							.remove()
+							.end()
+							.text()
+							.trim();
+						if (elementText.length >= 60)
+							if (!(element.tagName === 'LI' && elementText.includes('    ')))
+								text += " " + elementText;
+					});
+					playReadContent(text);
+				}
 				break;
 			default:
 				break;
