@@ -2497,8 +2497,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-color: rgba(150, 150, 150, 0.2);
 }
 /* line 66, ../scss/_read.scss */
-.__read .__read_bar .__read_position .__read_display, .__read .__read_bar .__read_position .__read_before,
-.__read .__read_bar .__read_position .__read_letter {
+.__read .__read_bar .__read_position .__read_display,
+.__read .__read_bar .__read_position .__read_before,
+.__read .__read_bar .__read_position .__read_letter,
+.__read .__read_bar .__read_position .__read_loading {
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2515,6 +2517,42 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   padding: 0;
   top: -99em;
 }
+
+.__read .__read_bar .__read_position .__read_loading {
+	padding-left: 210px;
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.__read .__read_bar .__read_position .__read_loading .__read_loading_rotation {
+	display: block;
+	position: absolute;
+	width: 23px;
+	height: 30px;
+	color: #666;
+	pointer-events: none;
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 1000ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-name: spin;
+	animation-duration: 1000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
 /* line 84, ../scss/_read.scss */
 .__read .__read_bar .__read_config {
   position: absolute;

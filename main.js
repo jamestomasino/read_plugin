@@ -1,5 +1,6 @@
 (function(){
 
+	var r; // Read Object
 	var readOptions = {
 		"wpm": 300,
 		"slowStartCount": 5,
@@ -12,15 +13,16 @@
 	chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
 		switch (request.functiontoInvoke) {
 			case "readSelectedText":
-				getReadOptions ( request.selectedText );
+				getReadOptions();
+				playReadContent( request.selectedText );
 				break;
 			case "readFullPage":
+				getReadOptions();
 				var getArticle = $.get( 'https://readparser.herokuapp.com/?url=' + document.URL );
-
 				getArticle.success(function( result ) {
-					getReadOptions( result );
+					playReadContent( result );
 				}).error(function( jqXHR, textStatus, errorThrown ) {
-					getReadOptions ( document.body.innerText || document.body.textContent );
+					playReadContent( document.body.innerText || document.body.textContent );
 				});
 				break;
 			default:
@@ -67,12 +69,17 @@
 		});
 	}
 
-	function getReadOptions ( text ) {
+	function getReadOptions () {
 		chrome.storage.sync.get(null, function ( myOptions ) {
 			readOptions = $.extend( {}, readOptions, myOptions );
 			//console.log('[READ] get:', readOptions);
-			var r = new Read ( text, readOptions );
-			r.play();
+			r = new Read ( readOptions );
 		});
 	}
+
+	function playReadContent ( text ) {
+		r.setText(text);
+		r.play();
+	}
+
 })();

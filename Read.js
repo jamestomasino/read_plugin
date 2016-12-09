@@ -9,6 +9,9 @@
 					<div class="__read_display"></div>\
 					<div class="__read_before"></div>\
 					<div class="__read_letter"></div>\
+					<div class="__read_loading">\
+						<div class="__read_loading_rotation">&#8635;</div>\
+					</div>\
 				</div>\
 				<div class="__read_config"></div>\
 				<div class="__read_restart"></div>\
@@ -78,7 +81,7 @@
 
 	var whiteSpace = /[\n\r\s]/;
 
-	function Read ( block, options ) { //element, wpm ) {
+	function Read ( options ) { //element, wpm ) {
 
 		// Defaults
 		this._parentElement = null;
@@ -123,7 +126,6 @@
 
 		// Configured
 		this.setWPM(this._options.wpm);
-		this.setText(block);
 		this.setElement();
 	}
 
@@ -349,6 +351,7 @@
 
 	p.setText = function (val) {
 		if (val) {
+			$('.__read_loading').hide();
 			this.pause();
 			this.restart();
 			this._block = new ReadBlock(val);
