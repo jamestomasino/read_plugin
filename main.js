@@ -38,7 +38,7 @@
 								text += " " + elementText;
 					});
 					playReadContent(text);
-				}
+				});
 				break;
 			default:
 				break;
