@@ -13,11 +13,11 @@
 	chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
 		switch (request.functiontoInvoke) {
 			case "readSelectedText":
-				getReadOptions();
+				// getReadOptions();
 				playReadContent( request.selectedText );
 				break;
 			case "readFullPage":
-				getReadOptions();
+				// getReadOptions();
 				var getArticle = $.get( 'https://readparser.herokuapp.com/?url=' + document.URL );
 				getArticle.success(function( result ) {
 					playReadContent( result );
@@ -38,7 +38,7 @@
 								text += " " + elementText;
 					});
 					playReadContent(text);
-				}
+				});
 				break;
 			default:
 				break;
@@ -84,17 +84,23 @@
 		});
 	}
 
-	function getReadOptions () {
+	// function getReadOptions () {
+	// 	chrome.storage.sync.get(null, function ( myOptions ) {
+	// 		readOptions = $.extend( {}, readOptions, myOptions );
+	// 		//console.log('[READ] get:', readOptions);
+	// 		r = new Read ( readOptions );
+	// 	});
+	// }
+
+	function playReadContent ( text ) {
 		chrome.storage.sync.get(null, function ( myOptions ) {
 			readOptions = $.extend( {}, readOptions, myOptions );
 			//console.log('[READ] get:', readOptions);
 			r = new Read ( readOptions );
-		});
-	}
 
-	function playReadContent ( text ) {
-		r.setText(text);
-		r.play();
+			r.setText(text);
+			r.play();
+		});
 	}
 
 })();
