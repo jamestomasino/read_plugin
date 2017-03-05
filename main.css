@@ -2511,6 +2511,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 30px;
   cursor: pointer;
 }
+/* Start centering words more flexibly (works for languages other than English) */
+.__read .__read_bar .__read_position {
+  text-align: center;
+}
+.__read .__read_bar .__read_position .__read_display,
+.__read .__read_bar .__read_position .__read_indicator {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 /* line 77, ../scss/_read.scss */
 .__read .__read_bar .__read_position .__read_before,
 .__read .__read_bar .__read_position .__read_letter {

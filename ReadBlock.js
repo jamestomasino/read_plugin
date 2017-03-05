@@ -13,7 +13,7 @@
 	var v = '['+vowels+']';
 	var vccv = new RegExp('('+v+c+')('+c+v+')', 'g');
 	var simple = new RegExp('(.{2,4}'+v+')'+'('+c+')', 'g');
-	var puncSplit = /(.+?)([\.\,])(.+)/;
+	var puncSplit = /(.+?)(\.[^\w]\b|,[^\w]\b)(.+?)/;
 
 	var ReadBlock = function ( val ) {
 		this.val = val;
