@@ -51,6 +51,7 @@ The tool also gives an additional pause between paragraphs to help contextualize
 
 #### Change Log
 
+- v2.0.6 - Code cleanup and fixes. No more unnecessary number punctuation breaking (@knod contribution)
 - v2.0.5 - Added loading icon while fetching full-page text through Mercury for better UX
 - v2.0.4 - Readability shut down its API, so I've migrated to a new one called Mercury
 - v2.0.3 - Explicitly set word-wrap properties to override sites that add breaks
