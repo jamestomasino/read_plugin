@@ -56,6 +56,18 @@
 			</div>\
 		</div>';
 
+	$.fn.textWidth = function(){
+		var self = $(this),
+			children = self.contents(),
+			calculator = $('<span style="display: inline-block;" />'),
+			width;
+
+		children.wrap(calculator);
+		width = children.parent().width();
+		children.unwrap();
+		return width;
+	};
+
 	var defaultOptions = {
 		wpm: 300,
 		slowStartCount: 5,
@@ -162,9 +174,11 @@
 			// fake elements
 			var $before = this._options.element.find('.__read_before').html(before).css("opacity","0");
 			var $letter = this._options.element.find('.__read_letter').html(letter).css("opacity","0");
+			var calc = $before.textWidth() + Math.round( $letter.textWidth() / 2 );
 
 			if (!this._currentWord.val.match(whiteSpace)){
 				this._displayElement.html(this._currentWord.val);
+				this._displayElement.css("margin-left", -calc);
 			}
 		}
 
