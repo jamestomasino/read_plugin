@@ -1,3 +1,9 @@
+# NOTICE
+
+The Mercury API that powers the full-page reading in this plugin is shutting down soon. This plugin will still work with context menu (select the text and right click) parsing afterwards, but that's all.
+
+I am in development on a new plugin for RSVP called [stutter](https://github.com/jamestomasino/stutter). It will be a cross-browser, modern code, implementation. If you forked this repo for your own tool, you might want to check out the code base on stutter instead for future work. The parsing heart is the same, but everything is using modern build tools and ES6 classes. Full page parsing is done locally by means of Mozilla's Reabability library. No more back-end server means it works offline and locally!
+
 ### Read
 
 Speed reading via rapid serial visual presentation
