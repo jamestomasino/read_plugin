@@ -16,25 +16,7 @@
 				playReadContent( request.selectedText );
 				break;
 			case "readFullPage":
-				var getArticle = $.get( 'https://readparser.herokuapp.com/?url=' + document.URL );
-				getArticle.success(function( result ) {
-					playReadContent( result );
-				}).error(function( jqXHR, textStatus, errorThrown ) {
-					var text = '';
-					var elements = $('p, li, h1, h2, h3, h4, h5, h6, span, pre');
-					elements.each(function(index, element) {
-						element = $(element);
-						var elementText = element
-							.clone()
-							.children('sup')
-							.remove()
-							.end()
-							.text()
-							.trim();
-						if (elementText.length >= 60)
-							if (!(element.tagName === 'LI' && elementText.includes('    ')))
-								text += " " + elementText;
-					});
+          var text = "Support for this plugin is ending. If you enjoy RSVP speed reading, please try our new plugin called Stutter. It is available from the Chrome Web Store and at https://bit.ly/stutterplugin.";
 					playReadContent(text);
 				});
 				break;
